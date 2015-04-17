@@ -713,33 +713,17 @@
                                 <toolbarItem implicitItemIdentifier="068B3ADD-1485-4E4F-AE86-96F25FB59195" label="Play Button" paletteLabel="Play Button" id="VM1-Q8-Iiq">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="82" height="32"/>
-                                    <size key="maxSize" width="84" height="43"/>
+                                    <size key="maxSize" width="129" height="54"/>
                                     <button key="view" verticalHuggingPriority="750" id="R4x-TD-160">
-                                        <rect key="frame" x="0.0" y="14" width="84" height="43"/>
+                                        <rect key="frame" x="0.0" y="14" width="129" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Play" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mwo-RR-e3g">
+                                        <buttonCell key="cell" type="push" title="Play / Pause" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mwo-RR-e3g">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
                                     <connections>
-                                        <action selector="play:" target="Oky-zY-oP4" id="qga-Vn-27E"/>
-                                    </connections>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="4664258A-C381-4B50-963F-182F61E96507" label="Pause Button" paletteLabel="Pause Button" id="GaS-27-i5Y">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="82" height="32"/>
-                                    <size key="maxSize" width="103" height="54"/>
-                                    <button key="view" verticalHuggingPriority="750" id="pKy-dr-ZjN">
-                                        <rect key="frame" x="0.0" y="14" width="103" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Pause" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OHt-Nm-2pu">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <connections>
-                                        <action selector="pause:" target="Oky-zY-oP4" id="nO5-ee-skM"/>
+                                        <action selector="togglePlaybackState:" target="Oky-zY-oP4" id="95k-dn-S3N"/>
                                     </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
@@ -748,7 +732,6 @@
                                 <toolbarItem reference="iIh-tt-Wl9"/>
                                 <toolbarItem reference="ZYC-le-D4W"/>
                                 <toolbarItem reference="VM1-Q8-Iiq"/>
-                                <toolbarItem reference="GaS-27-i5Y"/>
                                 <toolbarItem reference="ZYC-le-D4W"/>
                                 <toolbarItem reference="yuT-hD-dkJ"/>
                             </defaultToolbarItems>

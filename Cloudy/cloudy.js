@@ -1,9 +1,9 @@
 var Cloudy = {
-    isPlayerPage: function () {
+    isPlayerPage: function() {
         return $("#audioplayer").length == 1;
     },
 
-    sendEpisodeToCloudy: function () {
+    sendEpisodeToCloudy: function() {
         var episodeTitle = $(".titlestack .title").text();
         var showTitle = $(".titlestack .caption2").text();
 
@@ -15,32 +15,27 @@ var Cloudy = {
         webkit.messageHandlers.episodeHandler.postMessage(details);
     },
 
-    installPlaybackHandlers: function () {
+    installPlaybackHandlers: function() {
         var player = $("#audioplayer")[0];
         player.addEventListener("play", Cloudy.playerDidPlay);
         player.addEventListener("pause", Cloudy.playerDidPause);
     },
 
-    playerDidPlay: function () {
+    playerDidPlay: function() {
         webkit.messageHandlers.playbackHandler.postMessage({
             "playing": true
         });
     },
 
-    playerDidPause: function () {
+    playerDidPause: function() {
         webkit.messageHandlers.playbackHandler.postMessage({
             "playing": false
         });
     },
 
-    play: function() {
+    togglePlaybackState: function() {
         var player = $("#audioplayer")[0];
-        player.play();
-    },
-
-    pause: function() {
-        var player = $("#audioplayer")[0];
-        player.pause();
+        player.paused ? player.play() : player.pause();
     }
 };
 

@@ -40,8 +40,8 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
 
         webView.configuration.userContentController.addScriptMessageHandler(self, name: "playbackHandler")
         webView.configuration.userContentController.addScriptMessageHandler(self, name: "episodeHandler")
-
         webView.navigationDelegate = self
+
         view.addSubview(webView)
         setupConstraints()
 
@@ -72,12 +72,8 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
         println("\(__FUNCTION__) \(dictionary)")
     }
 
-    @objc private func play(sender: AnyObject?) {
-        webView.evaluateJavaScript("Cloudy.play();", completionHandler: nil)
-    }
-
-    @objc private func pause(sender: AnyObject?) {
-        webView.evaluateJavaScript("Cloudy.pause();", completionHandler: nil)
+    @objc private func togglePlaybackState(sender: AnyObject?) {
+        webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
     }
 
     @objc private func goBack(sender: AnyObject?) {
