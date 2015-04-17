@@ -1,5 +1,5 @@
 var Cloudy = {
-    isPlayerPage: function() {
+    isEpisodePage: function() {
         return $("#audioplayer").length == 1;
     },
 
@@ -49,7 +49,7 @@ var Cloudy = {
 };
 
 $(function() {
-    if (Cloudy.isPlayerPage()) {
+    if (Cloudy.isEpisodePage()) {
         Cloudy.installPlaybackHandlers();
         Cloudy.installSpaceHandler();
         Cloudy.sendEpisodeToCloudy();
