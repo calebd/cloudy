@@ -8,12 +8,20 @@
 
 import Cocoa
 
-final class MainWindowController: NSWindowController {
+final class MainWindowController: NSWindowController, NSWindowDelegate {
 
     // MARK: - NSWindowController
 
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.titleVisibility = .Hidden
+    }
+
+
+    // MARK: - NSWindowDelegate
+
+    func windowShouldClose(sender: AnyObject) -> Bool {
+        NSApplication.sharedApplication().terminate(self)
+        return false
     }
 }

@@ -732,6 +732,7 @@
                                     <string key="NSNullPlaceholder">Cloudy</string>
                                 </dictionary>
                             </binding>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="tGp-vd-or2"/>
                         </connections>
                     </window>
                     <connections>
