@@ -53,13 +53,25 @@ final class ViewController: NSViewController, WKNavigationDelegate, WKScriptMess
 
     // MARK: - Private
 
-    func setupConstraints() {
+    private func setupConstraints() {
         let views = [
             "webView": webView
         ]
 
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|[webView]|", options: nil, metrics: nil, views: views))
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: nil, metrics: nil, views: views))
+    }
+
+    private func handleUpdateEpisodeMessage(message: AnyObject?) {
+        let dictionary = message as? [String: AnyObject]
+//        let showTitle = dictionary?["show_title"] as? String
+//        let episodeTitle = dictionary?["episode_title"] as? String
+        println("\(__FUNCTION__) \(dictionary)")
+    }
+
+    private func handleUpdatePlaybackMessage(message: AnyObject?) {
+        let dictionary = message as? [String: AnyObject]
+        println("\(__FUNCTION__) \(dictionary)")
     }
 
 
@@ -75,10 +87,9 @@ final class ViewController: NSViewController, WKNavigationDelegate, WKScriptMess
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
         switch message.name {
         case "episodeHandler":
-            let dictionary = message.body as? [String: AnyObject]
-            let showTitle = dictionary?["show_title"] as? String
-            let episodeTitle = dictionary?["episode_title"] as? String
-            println("\(showTitle) - \(episodeTitle)")
+            handleUpdateEpisodeMessage(message.body)
+        case "playbackHandler":
+            handleUpdatePlaybackMessage(message.body)
         default:
             noop()
         }
