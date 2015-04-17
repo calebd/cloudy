@@ -23,13 +23,13 @@ var Cloudy = {
 
     playerDidPlay: function() {
         webkit.messageHandlers.playbackHandler.postMessage({
-            "is_playing": true
+            is_playing: true
         });
     },
 
     playerDidPause: function() {
         webkit.messageHandlers.playbackHandler.postMessage({
-            "is_playing": false
+            is_playing: false
         });
     },
 
@@ -47,16 +47,14 @@ var Cloudy = {
         });
     },
 
-    hideElements: function() {
-        $(".nav").css({ display: "none" })
-    },
-
     setup: function() {
-        Cloudy.hideElements();
         if (Cloudy.isEpisodePage()) {
             Cloudy.installPlaybackHandlers();
             Cloudy.installSpaceHandler();
         }
+
+        $(".nav").css({ display: "none" });
+
         webkit.messageHandlers.episodeHandler.postMessage(Cloudy.getEpisodeDetails());
     }
 };

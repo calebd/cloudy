@@ -15,6 +15,10 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
 
     @IBOutlet var navigationControl: NSSegmentedControl?
 
+    @IBOutlet var shareButton: NSButton?
+
+    @IBOutlet var playbackButton: NSButton?
+
 
     // MARK: - NSWindowController
 
@@ -31,6 +35,19 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
             rac_valuesForKeyPath("contentViewController.webView.canGoForward", observer: self),
             RACSignal.`return`(1)
         ])
+
+        rac_valuesForKeyPath("contentViewController.isEpisodePage", observer: self)
+            .setKeyPath("shareButton.enabled", onObject: self)
+
+        rac_valuesForKeyPath("contentViewController.isEpisodePage", observer: self)
+            .setKeyPath("playbackButton.enabled", onObject: self)
+
+//        rac_valuesForKeyPath("contentViewController.playing", observer: self)
+//            .map({
+//                let value = $0 as! Bool
+//                return value ? "Pause" : "Play"
+//            })
+//            .setKeyPath("playbackButton.title", onObject: self)
     }
 
 

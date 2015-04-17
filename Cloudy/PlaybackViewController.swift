@@ -48,6 +48,10 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
         return view
     }()
 
+    private(set) dynamic var isEpisodePage: Bool = false
+
+    private(set) dynamic var isPlaying: Bool = false
+
 
     // MARK: - NSViewController
 
@@ -80,11 +84,12 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
 
     private func handleUpdateEpisodeMessage(message: AnyObject?) {
         title = PrettyTitle(message)
+        isEpisodePage = message is [String: AnyObject]
     }
 
     private func handleUpdatePlaybackMessage(message: AnyObject?) {
-        let dictionary = message as? [String: AnyObject]
-        println("\(__FUNCTION__) \(dictionary)")
+        let dictionary = message as! [String: AnyObject]
+        isPlaying = dictionary["is_playing"] as! Bool
     }
 
     @objc private func performBrowserNavigation(sender: NSSegmentedControl) {

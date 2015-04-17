@@ -737,6 +737,8 @@
                     </window>
                     <connections>
                         <outlet property="navigationControl" destination="WZI-AR-IJE" id="2Hp-2J-qfj"/>
+                        <outlet property="playbackButton" destination="R4x-TD-160" id="UPQ-wh-e9u"/>
+                        <outlet property="shareButton" destination="WcS-Iy-vd0" id="j6W-cr-uYL"/>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
                     </connections>
                 </windowController>
