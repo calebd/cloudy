@@ -665,7 +665,7 @@
                                 <toolbarItem implicitItemIdentifier="E06E78A4-9668-4260-BEC9-3E6922211DC5" label="Share Button" paletteLabel="Share Button" image="NSShareTemplate" id="yuT-hD-dkJ">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="34" height="25"/>
-                                    <size key="maxSize" width="34" height="25"/>
+                                    <size key="maxSize" width="46" height="28"/>
                                     <button key="view" verticalHuggingPriority="750" id="WcS-Iy-vd0">
                                         <rect key="frame" x="16" y="14" width="46" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -681,7 +681,7 @@
                                 <toolbarItem implicitItemIdentifier="068B3ADD-1485-4E4F-AE86-96F25FB59195" label="Play Button" paletteLabel="Play Button" id="VM1-Q8-Iiq">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="100" height="25"/>
-                                    <size key="maxSize" width="100" height="25"/>
+                                    <size key="maxSize" width="129" height="28"/>
                                     <button key="view" verticalHuggingPriority="750" id="R4x-TD-160">
                                         <rect key="frame" x="0.0" y="14" width="129" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -696,7 +696,7 @@
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="EA1AB8A1-3D9C-4E1A-B0FF-D4766713C22E" label="Navigation" paletteLabel="Navigation" id="cQ9-bd-Dtw" userLabel="Navigation Button">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="60" height="25"/>
+                                    <size key="minSize" width="57" height="25"/>
                                     <size key="maxSize" width="60" height="25"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="WZI-AR-IJE">
                                         <rect key="frame" x="4" y="14" width="57" height="25"/>
@@ -736,6 +736,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="navigationControl" destination="WZI-AR-IJE" id="2Hp-2J-qfj"/>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
                     </connections>
                 </windowController>

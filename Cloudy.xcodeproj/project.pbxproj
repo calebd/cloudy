@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2332D51AE1BA48005C6654 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */; };
+		3B2332D71AE1BA7D005C6654 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */; };
 		3B430E281AE0A88F00AEBFBC /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E271AE0A88F00AEBFBC /* PlaybackViewController.swift */; };
 		3B430E2A1AE0A88F00AEBFBC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E291AE0A88F00AEBFBC /* Images.xcassets */; };
@@ -16,7 +18,21 @@
 		3B430E4A1AE0C66200AEBFBC /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E491AE0C66200AEBFBC /* MainWindowController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3B2332D61AE1BA59005C6654 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3B2332D71AE1BA7D005C6654 /* ReactiveCocoa.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		3B430E201AE0A88F00AEBFBC /* Cloudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B430E241AE0A88F00AEBFBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,16 +50,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2332D51AE1BA48005C6654 /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B2332D81AE1BA84005C6654 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3B430E171AE0A88F00AEBFBC = {
 			isa = PBXGroup;
 			children = (
 				3B430E221AE0A88F00AEBFBC /* Cloudy */,
+				3B2332D81AE1BA84005C6654 /* Frameworks */,
 				3B430E211AE0A88F00AEBFBC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +116,7 @@
 				3B430E1C1AE0A88F00AEBFBC /* Sources */,
 				3B430E1D1AE0A88F00AEBFBC /* Frameworks */,
 				3B430E1E1AE0A88F00AEBFBC /* Resources */,
+				3B2332D61AE1BA59005C6654 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -193,7 +220,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -237,7 +263,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -262,6 +287,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cloudy/Cloudy.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Cloudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
@@ -275,6 +304,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cloudy/Cloudy.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Cloudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

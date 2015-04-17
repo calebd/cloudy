@@ -29,7 +29,7 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
 
     // MARK: - Properties
 
-    private let webView: WKWebView = {
+    private dynamic let webView: WKWebView = {
         let script: WKUserScript = {
             let url = NSBundle.mainBundle().URLForResource("cloudy", withExtension: "js")!
             let contents = String(contentsOfURL: url, encoding: NSUTF8StringEncoding, error: nil)!

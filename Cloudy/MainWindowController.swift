@@ -7,14 +7,30 @@
 //
 
 import Cocoa
+import ReactiveCocoa
 
 final class MainWindowController: NSWindowController, NSWindowDelegate {
+
+    // MARK: - Properties
+
+    @IBOutlet var navigationControl: NSSegmentedControl?
+
 
     // MARK: - NSWindowController
 
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.titleVisibility = .Hidden
+
+        navigationControl?.rac_liftSelector("setEnabled:forSegment:", withSignalsFromArray: [
+            rac_valuesForKeyPath("contentViewController.webView.canGoBack", observer: self),
+            RACSignal.`return`(0)
+        ])
+
+        navigationControl?.rac_liftSelector("setEnabled:forSegment:", withSignalsFromArray: [
+            rac_valuesForKeyPath("contentViewController.webView.canGoForward", observer: self),
+            RACSignal.`return`(1)
+        ])
     }
 
 
