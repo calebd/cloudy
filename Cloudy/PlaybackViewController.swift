@@ -83,16 +83,19 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
         println("\(__FUNCTION__) \(dictionary)")
     }
 
+    @objc private func performBrowserNavigation(sender: NSSegmentedControl) {
+        switch sender.selectedSegment {
+        case 0:
+            webView.goBack()
+        case 1:
+            webView.goForward()
+        default:
+            noop()
+        }
+    }
+
     @objc private func togglePlaybackState(sender: AnyObject?) {
         webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
-    }
-
-    @objc private func goBack(sender: AnyObject?) {
-        webView.goBack()
-    }
-
-    @objc private func goForward(sender: AnyObject?) {
-        webView.goForward()
     }
 
     @objc private func share(sender: AnyObject?) {

@@ -662,46 +662,14 @@
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="SrH-bi-nKk"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="hJx-jV-pA0"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="ZYC-le-D4W"/>
-                                <toolbarItem implicitItemIdentifier="100E88E1-2D5E-4814-9849-E3AA9B59929B" label="Back Button" paletteLabel="Back Button" id="EuB-Oh-Adj">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="82" height="32"/>
-                                    <size key="maxSize" width="84" height="43"/>
-                                    <button key="view" verticalHuggingPriority="750" id="xgP-WN-ibi">
-                                        <rect key="frame" x="0.0" y="14" width="84" height="43"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dY7-e0-7ou">
-                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <connections>
-                                        <action selector="goBack:" target="Oky-zY-oP4" id="ffU-Ro-vYl"/>
-                                    </connections>
-                                </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="471717F1-38F0-40A9-BD1E-35F1BD7DE3A9" label="Forward Button" paletteLabel="Forward Button" id="iIh-tt-Wl9">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="82" height="32"/>
-                                    <size key="maxSize" width="103" height="54"/>
-                                    <button key="view" verticalHuggingPriority="750" id="9ha-dE-QEy">
-                                        <rect key="frame" x="0.0" y="14" width="103" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Forward" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sN6-wd-uxm">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <connections>
-                                        <action selector="goForward:" target="Oky-zY-oP4" id="bHY-7Q-M1s"/>
-                                    </connections>
-                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="E06E78A4-9668-4260-BEC9-3E6922211DC5" label="Share Button" paletteLabel="Share Button" image="NSShareTemplate" id="yuT-hD-dkJ">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="46" height="32"/>
-                                    <size key="maxSize" width="88" height="48"/>
+                                    <size key="minSize" width="38" height="28"/>
+                                    <size key="maxSize" width="46" height="28"/>
                                     <button key="view" verticalHuggingPriority="750" id="WcS-Iy-vd0">
-                                        <rect key="frame" x="0.0" y="14" width="46" height="43"/>
+                                        <rect key="frame" x="16" y="14" width="46" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSShareTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fJX-eB-wPF">
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSShareTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fJX-eB-wPF">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -712,13 +680,13 @@
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="068B3ADD-1485-4E4F-AE86-96F25FB59195" label="Play Button" paletteLabel="Play Button" id="VM1-Q8-Iiq">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="82" height="32"/>
-                                    <size key="maxSize" width="129" height="54"/>
+                                    <size key="minSize" width="82" height="28"/>
+                                    <size key="maxSize" width="129" height="28"/>
                                     <button key="view" verticalHuggingPriority="750" id="R4x-TD-160">
-                                        <rect key="frame" x="0.0" y="14" width="129" height="54"/>
+                                        <rect key="frame" x="0.0" y="14" width="129" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Play / Pause" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mwo-RR-e3g">
-                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" title="Play / Pause" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mwo-RR-e3g">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
@@ -726,10 +694,28 @@
                                         <action selector="togglePlaybackState:" target="Oky-zY-oP4" id="95k-dn-S3N"/>
                                     </connections>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="EA1AB8A1-3D9C-4E1A-B0FF-D4766713C22E" label="Navigation" paletteLabel="Navigation" id="cQ9-bd-Dtw">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="71" height="28"/>
+                                    <size key="maxSize" width="130" height="28"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="WZI-AR-IJE">
+                                        <rect key="frame" x="0.0" y="14" width="130" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="RLq-K1-Pbu">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment label="Back"/>
+                                                <segment label="Forward" tag="1"/>
+                                            </segments>
+                                        </segmentedCell>
+                                    </segmentedControl>
+                                    <connections>
+                                        <action selector="performBrowserNavigation:" target="Oky-zY-oP4" id="w91-dt-6f0"/>
+                                    </connections>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="EuB-Oh-Adj"/>
-                                <toolbarItem reference="iIh-tt-Wl9"/>
+                                <toolbarItem reference="cQ9-bd-Dtw"/>
                                 <toolbarItem reference="ZYC-le-D4W"/>
                                 <toolbarItem reference="VM1-Q8-Iiq"/>
                                 <toolbarItem reference="ZYC-le-D4W"/>
