@@ -3,16 +3,13 @@ var Cloudy = {
         return $("#audioplayer").length == 1;
     },
 
-    sendEpisodeToCloudy: function() {
+    getEpisodeDetails: function() {
         var episodeTitle = $(".titlestack .title").text();
         var showTitle = $(".titlestack .caption2").text();
-
-        var details = {
-            "show_title": showTitle,
-            "episode_title": episodeTitle
+        return {
+            show_title: showTitle,
+            episode_title: episodeTitle
         };
-
-        webkit.messageHandlers.episodeHandler.postMessage(details);
     },
 
     installPlaybackHandlers: function() {
@@ -52,7 +49,7 @@ $(function() {
     if (Cloudy.isEpisodePage()) {
         Cloudy.installPlaybackHandlers();
         Cloudy.installSpaceHandler();
-        Cloudy.sendEpisodeToCloudy();
+        webkit.messageHandlers.episodeHandler.postMessage(Cloudy.getEpisodeDetails());
     }
     else {
         webkit.messageHandlers.episodeHandler.postMessage(null);
