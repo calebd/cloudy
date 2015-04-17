@@ -722,6 +722,9 @@
                                 <toolbarItem reference="yuT-hD-dkJ"/>
                             </defaultToolbarItems>
                         </toolbar>
+                        <connections>
+                            <binding destination="B8D-0N-5wS" name="title" keyPath="self.window.contentViewController.title" id="rJ8-uP-A6s"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
