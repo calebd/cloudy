@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */; };
-		3B430E281AE0A88F00AEBFBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E271AE0A88F00AEBFBC /* ViewController.swift */; };
+		3B430E281AE0A88F00AEBFBC /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E271AE0A88F00AEBFBC /* PlaybackViewController.swift */; };
 		3B430E2A1AE0A88F00AEBFBC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E291AE0A88F00AEBFBC /* Images.xcassets */; };
 		3B430E2D1AE0A88F00AEBFBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E2B1AE0A88F00AEBFBC /* Main.storyboard */; };
 		3B430E441AE0B20700AEBFBC /* cloudy.js in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E431AE0B20700AEBFBC /* cloudy.js */; };
@@ -20,7 +20,7 @@
 		3B430E201AE0A88F00AEBFBC /* Cloudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B430E241AE0A88F00AEBFBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B430E271AE0A88F00AEBFBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B430E271AE0A88F00AEBFBC /* PlaybackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
 		3B430E291AE0A88F00AEBFBC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3B430E2C1AE0A88F00AEBFBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B430E431AE0B20700AEBFBC /* cloudy.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cloudy.js; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */,
-				3B430E271AE0A88F00AEBFBC /* ViewController.swift */,
+				3B430E271AE0A88F00AEBFBC /* PlaybackViewController.swift */,
 				3B430E491AE0C66200AEBFBC /* MainWindowController.swift */,
 				3B430E451AE0C0FE00AEBFBC /* Defines.swift */,
 				3B430E421AE0A93000AEBFBC /* Resources */,
@@ -148,7 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B430E281AE0A88F00AEBFBC /* ViewController.swift in Sources */,
+				3B430E281AE0A88F00AEBFBC /* PlaybackViewController.swift in Sources */,
 				3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */,
 				3B430E4A1AE0C66200AEBFBC /* MainWindowController.swift in Sources */,
 				3B430E461AE0C0FE00AEBFBC /* Defines.swift in Sources */,

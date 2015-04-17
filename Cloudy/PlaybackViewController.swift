@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PlaybackViewController.swift
 //  Cloudy
 //
 //  Created by Caleb Davenport on 4/16/15.
@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-final class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
+final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     // MARK: - Properties
 
@@ -64,14 +64,32 @@ final class ViewController: NSViewController, WKNavigationDelegate, WKScriptMess
 
     private func handleUpdateEpisodeMessage(message: AnyObject?) {
         let dictionary = message as? [String: AnyObject]
-//        let showTitle = dictionary?["show_title"] as? String
-//        let episodeTitle = dictionary?["episode_title"] as? String
         println("\(__FUNCTION__) \(dictionary)")
     }
 
     private func handleUpdatePlaybackMessage(message: AnyObject?) {
         let dictionary = message as? [String: AnyObject]
         println("\(__FUNCTION__) \(dictionary)")
+    }
+
+    @objc private func play(sender: AnyObject?) {
+        webView.evaluateJavaScript("Cloudy.play();", completionHandler: nil)
+    }
+
+    @objc private func pause(sender: AnyObject?) {
+        webView.evaluateJavaScript("Cloudy.pause();", completionHandler: nil)
+    }
+
+    @objc private func goBack(sender: AnyObject?) {
+        webView.goBack()
+    }
+
+    @objc private func goForward(sender: AnyObject?) {
+        webView.goForward()
+    }
+
+    @objc private func share(sender: AnyObject?) {
+        
     }
 
 

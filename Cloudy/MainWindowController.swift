@@ -10,9 +10,10 @@ import Cocoa
 
 class MainWindowController: NSWindowController {
 
+    // MARK: - NSWindowController
+
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.titleVisibility = .Hidden
     }
-
 }

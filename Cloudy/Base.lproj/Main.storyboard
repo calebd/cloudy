@@ -674,6 +674,9 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <connections>
+                                        <action selector="goBack:" target="Oky-zY-oP4" id="ffU-Ro-vYl"/>
+                                    </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="471717F1-38F0-40A9-BD1E-35F1BD7DE3A9" label="Forward Button" paletteLabel="Forward Button" id="iIh-tt-Wl9">
                                     <nil key="toolTip"/>
@@ -687,6 +690,9 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <connections>
+                                        <action selector="goForward:" target="Oky-zY-oP4" id="bHY-7Q-M1s"/>
+                                    </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="E06E78A4-9668-4260-BEC9-3E6922211DC5" label="Share Button" paletteLabel="Share Button" image="NSShareTemplate" id="yuT-hD-dkJ">
                                     <nil key="toolTip"/>
@@ -700,6 +706,9 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <connections>
+                                        <action selector="share:" target="Oky-zY-oP4" id="4yb-G7-51y"/>
+                                    </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="068B3ADD-1485-4E4F-AE86-96F25FB59195" label="Play Button" paletteLabel="Play Button" id="VM1-Q8-Iiq">
                                     <nil key="toolTip"/>
@@ -713,6 +722,9 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <connections>
+                                        <action selector="play:" target="Oky-zY-oP4" id="qga-Vn-27E"/>
+                                    </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="4664258A-C381-4B50-963F-182F61E96507" label="Pause Button" paletteLabel="Pause Button" id="GaS-27-i5Y">
                                     <nil key="toolTip"/>
@@ -726,6 +738,9 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <connections>
+                                        <action selector="pause:" target="Oky-zY-oP4" id="nO5-ee-skM"/>
+                                    </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
@@ -748,10 +763,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="312"/>
         </scene>
-        <!--View Controller-->
+        <!--Playback View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Cloudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="PlaybackViewController" customModule="Cloudy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
