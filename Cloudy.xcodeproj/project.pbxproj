@@ -60,8 +60,8 @@
 			children = (
 				3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */,
 				3B430E271AE0A88F00AEBFBC /* ViewController.swift */,
-				3B430E451AE0C0FE00AEBFBC /* Defines.swift */,
 				3B430E491AE0C66200AEBFBC /* MainWindowController.swift */,
+				3B430E451AE0C0FE00AEBFBC /* Defines.swift */,
 				3B430E421AE0A93000AEBFBC /* Resources */,
 			);
 			path = Cloudy;

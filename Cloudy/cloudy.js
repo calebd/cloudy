@@ -32,6 +32,16 @@ var Cloudy = {
             "playing": false
         });
     }
+
+    play: function() {
+        var player = $("#audioplayer")[0];
+        player.play();
+    }
+
+    pause: function() {
+        var player = $("#audioplayer")[0];
+        player.pause();
+    }
 };
 
 $(function() {
