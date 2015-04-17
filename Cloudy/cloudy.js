@@ -45,13 +45,20 @@ var Cloudy = {
                 Cloudy.togglePlaybackState();
             }
         });
+    },
+
+    hideElements: function() {
+        $(".nav").css({ display: "none" })
+    },
+
+    setup: function() {
+        Cloudy.hideElements();
+        if (Cloudy.isEpisodePage()) {
+            Cloudy.installPlaybackHandlers();
+            Cloudy.installSpaceHandler();
+        }
+        webkit.messageHandlers.episodeHandler.postMessage(Cloudy.getEpisodeDetails());
     }
 };
 
-$(function() {
-    if (Cloudy.isEpisodePage()) {
-        Cloudy.installPlaybackHandlers();
-        Cloudy.installSpaceHandler();
-    }
-    webkit.messageHandlers.episodeHandler.postMessage(Cloudy.getEpisodeDetails());
-});
+$(Cloudy.setup());
