@@ -42,12 +42,9 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
         rac_valuesForKeyPath("contentViewController.isEpisodePage", observer: self)
             .setKeyPath("playbackButton.enabled", onObject: self)
 
-//        rac_valuesForKeyPath("contentViewController.playing", observer: self)
-//            .map({
-//                let value = $0 as! Bool
-//                return value ? "Pause" : "Play"
-//            })
-//            .setKeyPath("playbackButton.title", onObject: self)
+        rac_valuesForKeyPath("contentViewController.isPlaying", observer: self)
+            .map({ $0 as! Bool ? "Pause" : "Play" })
+            .setKeyPath("playbackButton.title", onObject: self)
     }
 
 
