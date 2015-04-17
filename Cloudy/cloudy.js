@@ -36,12 +36,22 @@ var Cloudy = {
     togglePlaybackState: function() {
         var player = $("#audioplayer")[0];
         player.paused ? player.play() : player.pause();
+    },
+
+    installSpaceHandler: function() {
+        $(window).keypress(function(event) {
+            if (event.keyCode == 32) {
+                event.preventDefault();
+                Cloudy.togglePlaybackState();
+            }
+        });
     }
 };
 
 $(function() {
     if (Cloudy.isPlayerPage()) {
         Cloudy.installPlaybackHandlers();
+        Cloudy.installSpaceHandler();
         Cloudy.sendEpisodeToCloudy();
     }
     else {
