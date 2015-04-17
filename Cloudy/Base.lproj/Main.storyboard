@@ -654,7 +654,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="800" height="600"/>
+                        <value key="minSize" type="size" width="700" height="550"/>
                         <toolbar key="toolbar" implicitIdentifier="658273E3-72E5-4DE9-A8D8-BA5CB3075990" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="XhH-MO-OPE">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="bXH-jq-pES"/>
