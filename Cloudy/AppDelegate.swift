@@ -9,15 +9,6 @@
 import Cocoa
 
 @NSApplicationMain class AppDelegate: NSObject, NSApplicationDelegate {
-
-    // MARK: - NSApplicationDelegate
-
-    func applicationDidFinishLaunching(notification: NSNotification) {
-
-    }
-
-    func applicationWillTerminate(notification: NSNotification) {
-
-    }
+    
 }
 

@@ -92,7 +92,7 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     // MARK: - WKNavigationDelegate
 
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation) {
-        println("\(__FUNCTION__) \(webView.URL)")
+        
     }
 
 
