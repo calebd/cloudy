@@ -9,6 +9,22 @@
 import Cocoa
 import WebKit
 
+private func PrettyTitle(episode: AnyObject?) -> String? {
+    let dictionary = episode as? [String: AnyObject]
+    let showTitle = dictionary?["show_title"] as? String
+    let episodeTitle = dictionary?["episode_title"] as? String
+    switch (showTitle, episodeTitle) {
+    case (.Some(let show), .Some(let episode)):
+        return "\(show): \(episode)"
+    case (.Some(let show), .None):
+        return show
+    case (.None, .Some(let episode)):
+        return episode
+    default:
+        return nil
+    }
+}
+
 final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     // MARK: - Properties
@@ -63,19 +79,7 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     }
 
     private func handleUpdateEpisodeMessage(message: AnyObject?) {
-        let dictionary = message as? [String: AnyObject]
-        let showName = dictionary?["show_title"] as? String
-        let episodeName = dictionary?["episode_title"] as? String
-        switch (showName, episodeName) {
-        case (.Some(let show), .Some(let episode)):
-            title = "\(show) - \(episode)"
-        case (.Some(let show), .None):
-            title = show
-        case (.None, .Some(let episode)):
-            title = episode
-        default:
-            title = nil
-        }
+        title = PrettyTitle(message)
     }
 
     private func handleUpdatePlaybackMessage(message: AnyObject?) {
