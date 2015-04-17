@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MainWindowController: NSWindowController {
+final class MainWindowController: NSWindowController {
 
     // MARK: - NSWindowController
 

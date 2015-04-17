@@ -23,13 +23,13 @@ var Cloudy = {
 
     playerDidPlay: function() {
         webkit.messageHandlers.playbackHandler.postMessage({
-            "playing": true
+            "is_playing": true
         });
     },
 
     playerDidPause: function() {
         webkit.messageHandlers.playbackHandler.postMessage({
-            "playing": false
+            "is_playing": false
         });
     },
 

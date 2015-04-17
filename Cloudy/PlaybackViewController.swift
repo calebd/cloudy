@@ -64,7 +64,18 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
 
     private func handleUpdateEpisodeMessage(message: AnyObject?) {
         let dictionary = message as? [String: AnyObject]
-        println("\(__FUNCTION__) \(dictionary)")
+        let showName = dictionary?["show_title"] as? String
+        let episodeName = dictionary?["episode_title"] as? String
+        switch (showName, episodeName) {
+        case (.Some(let show), .Some(let episode)):
+            title = "\(show) - \(episode)"
+        case (.Some(let show), .None):
+            title = show
+        case (.None, .Some(let episode)):
+            title = episode
+        default:
+            title = nil
+        }
     }
 
     private func handleUpdatePlaybackMessage(message: AnyObject?) {
