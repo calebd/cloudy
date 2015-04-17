@@ -655,7 +655,7 @@
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="800" height="600"/>
-                        <toolbar key="toolbar" implicitIdentifier="658273E3-72E5-4DE9-A8D8-BA5CB3075990" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="XhH-MO-OPE">
+                        <toolbar key="toolbar" implicitIdentifier="658273E3-72E5-4DE9-A8D8-BA5CB3075990" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="XhH-MO-OPE">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="bXH-jq-pES"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Cuy-Np-fQk"/>
@@ -664,8 +664,8 @@
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="ZYC-le-D4W"/>
                                 <toolbarItem implicitItemIdentifier="E06E78A4-9668-4260-BEC9-3E6922211DC5" label="Share Button" paletteLabel="Share Button" image="NSShareTemplate" id="yuT-hD-dkJ">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="38" height="28"/>
-                                    <size key="maxSize" width="46" height="28"/>
+                                    <size key="minSize" width="34" height="25"/>
+                                    <size key="maxSize" width="34" height="25"/>
                                     <button key="view" verticalHuggingPriority="750" id="WcS-Iy-vd0">
                                         <rect key="frame" x="16" y="14" width="46" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -680,8 +680,8 @@
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="068B3ADD-1485-4E4F-AE86-96F25FB59195" label="Play Button" paletteLabel="Play Button" id="VM1-Q8-Iiq">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="82" height="28"/>
-                                    <size key="maxSize" width="129" height="28"/>
+                                    <size key="minSize" width="100" height="25"/>
+                                    <size key="maxSize" width="100" height="25"/>
                                     <button key="view" verticalHuggingPriority="750" id="R4x-TD-160">
                                         <rect key="frame" x="0.0" y="14" width="129" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -697,9 +697,9 @@
                                 <toolbarItem implicitItemIdentifier="EA1AB8A1-3D9C-4E1A-B0FF-D4766713C22E" label="Navigation" paletteLabel="Navigation" id="cQ9-bd-Dtw" userLabel="Navigation Button">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="60" height="25"/>
-                                    <size key="maxSize" width="60" height="28"/>
+                                    <size key="maxSize" width="60" height="25"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="WZI-AR-IJE">
-                                        <rect key="frame" x="4" y="14" width="60" height="25"/>
+                                        <rect key="frame" x="4" y="14" width="57" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="RLq-K1-Pbu">
                                             <font key="font" metaFont="system"/>
