@@ -727,7 +727,11 @@
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
-                            <binding destination="B8D-0N-5wS" name="title" keyPath="self.window.contentViewController.title" id="rJ8-uP-A6s"/>
+                            <binding destination="B8D-0N-5wS" name="title" keyPath="self.window.contentViewController.title" id="oZt-d0-1Db">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">Cloudy</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </window>
                     <connections>
