@@ -4,6 +4,9 @@ var Cloudy = {
     },
 
     getEpisodeDetails: function() {
+        if (!Cloudy.isEpisodePage()) {
+            return null;
+        }
         var episodeTitle = $(".titlestack .title").text();
         var showTitle = $(".titlestack .caption2").text();
         return {
@@ -49,9 +52,6 @@ $(function() {
     if (Cloudy.isEpisodePage()) {
         Cloudy.installPlaybackHandlers();
         Cloudy.installSpaceHandler();
-        webkit.messageHandlers.episodeHandler.postMessage(Cloudy.getEpisodeDetails());
     }
-    else {
-        webkit.messageHandlers.episodeHandler.postMessage(null);
-    }
+    webkit.messageHandlers.episodeHandler.postMessage(Cloudy.getEpisodeDetails());
 });
