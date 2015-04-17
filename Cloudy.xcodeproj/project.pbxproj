@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */; };
+		3B430E281AE0A88F00AEBFBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E271AE0A88F00AEBFBC /* ViewController.swift */; };
+		3B430E2A1AE0A88F00AEBFBC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E291AE0A88F00AEBFBC /* Images.xcassets */; };
+		3B430E2D1AE0A88F00AEBFBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E2B1AE0A88F00AEBFBC /* Main.storyboard */; };
+		3B430E441AE0B20700AEBFBC /* cloudy.js in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E431AE0B20700AEBFBC /* cloudy.js */; };
+		3B430E461AE0C0FE00AEBFBC /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E451AE0C0FE00AEBFBC /* Defines.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3B430E201AE0A88F00AEBFBC /* Cloudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B430E241AE0A88F00AEBFBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3B430E271AE0A88F00AEBFBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3B430E291AE0A88F00AEBFBC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3B430E2C1AE0A88F00AEBFBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B430E431AE0B20700AEBFBC /* cloudy.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cloudy.js; sourceTree = "<group>"; };
+		3B430E451AE0C0FE00AEBFBC /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B430E1D1AE0A88F00AEBFBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B430E171AE0A88F00AEBFBC = {
+			isa = PBXGroup;
+			children = (
+				3B430E221AE0A88F00AEBFBC /* Cloudy */,
+				3B430E211AE0A88F00AEBFBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B430E211AE0A88F00AEBFBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B430E201AE0A88F00AEBFBC /* Cloudy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B430E221AE0A88F00AEBFBC /* Cloudy */ = {
+			isa = PBXGroup;
+			children = (
+				3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */,
+				3B430E271AE0A88F00AEBFBC /* ViewController.swift */,
+				3B430E451AE0C0FE00AEBFBC /* Defines.swift */,
+				3B430E421AE0A93000AEBFBC /* Resources */,
+			);
+			path = Cloudy;
+			sourceTree = "<group>";
+		};
+		3B430E421AE0A93000AEBFBC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3B430E291AE0A88F00AEBFBC /* Images.xcassets */,
+				3B430E2B1AE0A88F00AEBFBC /* Main.storyboard */,
+				3B430E241AE0A88F00AEBFBC /* Info.plist */,
+				3B430E431AE0B20700AEBFBC /* cloudy.js */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B430E1F1AE0A88F00AEBFBC /* Cloudy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B430E3C1AE0A88F00AEBFBC /* Build configuration list for PBXNativeTarget "Cloudy" */;
+			buildPhases = (
+				3B430E1C1AE0A88F00AEBFBC /* Sources */,
+				3B430E1D1AE0A88F00AEBFBC /* Frameworks */,
+				3B430E1E1AE0A88F00AEBFBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cloudy;
+			productName = Cloudy;
+			productReference = 3B430E201AE0A88F00AEBFBC /* Cloudy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B430E181AE0A88F00AEBFBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Shiny Bits";
+				TargetAttributes = {
+					3B430E1F1AE0A88F00AEBFBC = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 3B430E1B1AE0A88F00AEBFBC /* Build configuration list for PBXProject "Cloudy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B430E171AE0A88F00AEBFBC;
+			productRefGroup = 3B430E211AE0A88F00AEBFBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B430E1F1AE0A88F00AEBFBC /* Cloudy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B430E1E1AE0A88F00AEBFBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B430E441AE0B20700AEBFBC /* cloudy.js in Resources */,
+				3B430E2A1AE0A88F00AEBFBC /* Images.xcassets in Resources */,
+				3B430E2D1AE0A88F00AEBFBC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B430E1C1AE0A88F00AEBFBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B430E281AE0A88F00AEBFBC /* ViewController.swift in Sources */,
+				3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */,
+				3B430E461AE0C0FE00AEBFBC /* Defines.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3B430E2B1AE0A88F00AEBFBC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B430E2C1AE0A88F00AEBFBC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B430E3A1AE0A88F00AEBFBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B430E3B1AE0A88F00AEBFBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3B430E3D1AE0A88F00AEBFBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Cloudy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3B430E3E1AE0A88F00AEBFBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Cloudy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B430E1B1AE0A88F00AEBFBC /* Build configuration list for PBXProject "Cloudy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B430E3A1AE0A88F00AEBFBC /* Debug */,
+				3B430E3B1AE0A88F00AEBFBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B430E3C1AE0A88F00AEBFBC /* Build configuration list for PBXNativeTarget "Cloudy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B430E3D1AE0A88F00AEBFBC /* Debug */,
+				3B430E3E1AE0A88F00AEBFBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B430E181AE0A88F00AEBFBC /* Project object */;
+}
