@@ -132,4 +132,3 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
         }
     }
 }
-
