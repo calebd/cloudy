@@ -9,22 +9,6 @@
 import Cocoa
 import WebKit
 
-private func PrettyTitle(episode: AnyObject?) -> String? {
-    let dictionary = episode as? [String: AnyObject]
-    let showTitle = dictionary?["show_title"] as? String
-    let episodeTitle = dictionary?["episode_title"] as? String
-    switch (showTitle, episodeTitle) {
-    case (.Some(let show), .Some(let episode)):
-        return "\(show): \(episode)"
-    case (.Some(let show), .None):
-        return show
-    case (.None, .Some(let episode)):
-        return episode
-    default:
-        return nil
-    }
-}
-
 final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     // MARK: - Properties
