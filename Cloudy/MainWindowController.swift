@@ -26,6 +26,7 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
         super.windowDidLoad()
         window?.titleVisibility = .Hidden
         shareButton?.sendActionOn(Int(NSEventMask.LeftMouseUpMask.rawValue))
+        playbackButton?.imagePosition = .ImageLeft
 
         navigationControl?.rac_liftSelector("setEnabled:forSegment:", withSignalsFromArray: [
             rac_valuesForKeyPath("contentViewController.webView.canGoBack", observer: self),
