@@ -85,6 +85,7 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     private func handleUpdateEpisodeMessage(message: AnyObject?) {
         let dictionary = message as? [String: AnyObject]
         currentPlaybackItem = dictionary.map({ PlaybackItem(episodeDictionary: $0) })
+        title = currentPlaybackItem?.prettyName()
     }
 
     private func handleUpdatePlaybackMessage(message: AnyObject?) {
