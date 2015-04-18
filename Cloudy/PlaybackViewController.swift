@@ -93,7 +93,17 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     }
 
     @objc private func share(sender: NSButton) {
-        webView.evaluateJavaScript("Cloudy.getEpisodeDetails();", completionHandler: nil)
+        var items = [AnyObject]()
+
+        currentPlaybackItem?.prettyName().map({ items.append($0) })
+        webView.URL.map({ items.append($0) })
+
+        if items.count == 0 {
+            return
+        }
+
+        let picker = NSSharingServicePicker(items: items)
+        picker.showRelativeToRect(sender.bounds, ofView: sender, preferredEdge: NSMinYEdge)
     }
 
 
