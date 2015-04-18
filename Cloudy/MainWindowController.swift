@@ -28,6 +28,8 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
         shareButton?.sendActionOn(Int(NSEventMask.LeftMouseUpMask.rawValue))
         playbackButton?.imagePosition = .ImageLeft
 
+        let currentPlaybackItemSignal = rac_valuesForKeyPath("contentViewController.currentPlaybackItem", observer: self)
+
         navigationControl?.rac_liftSelector("setEnabled:forSegment:", withSignalsFromArray: [
             rac_valuesForKeyPath("contentViewController.webView.canGoBack", observer: self),
             RACSignal.`return`(0)
@@ -38,14 +40,19 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
             RACSignal.`return`(1)
         ])
 
-        rac_valuesForKeyPath("contentViewController.isEpisodePage", observer: self)
+        currentPlaybackItemSignal
+            .map({ $0 is PlaybackItem })
             .setKeyPath("shareButton.enabled", onObject: self)
 
-        rac_valuesForKeyPath("contentViewController.isEpisodePage", observer: self)
+        currentPlaybackItemSignal
+            .map({ $0 is PlaybackItem })
             .setKeyPath("playbackButton.enabled", onObject: self)
 
-        rac_valuesForKeyPath("contentViewController.isPlaying", observer: self)
-            .map({ $0 as! Bool ? "Pause" : "Play" })
+        currentPlaybackItemSignal
+            .map({
+                let item = $0 as? PlaybackItem
+                return item?.prettyName() ?? "Cloudy: No Episode"
+            })
             .setKeyPath("playbackButton.title", onObject: self)
     }
 

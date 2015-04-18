@@ -681,11 +681,11 @@
                                 <toolbarItem implicitItemIdentifier="068B3ADD-1485-4E4F-AE86-96F25FB59195" label="Play Button" paletteLabel="Play Button" id="VM1-Q8-Iiq">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="100" height="25"/>
-                                    <size key="maxSize" width="129" height="28"/>
+                                    <size key="maxSize" width="300" height="28"/>
                                     <button key="view" verticalHuggingPriority="750" id="R4x-TD-160">
-                                        <rect key="frame" x="0.0" y="14" width="129" height="28"/>
+                                        <rect key="frame" x="0.0" y="14" width="300" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" title="Play / Pause" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mwo-RR-e3g">
+                                        <buttonCell key="cell" type="roundTextured" title="Play / Pause" bezelStyle="texturedRounded" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mwo-RR-e3g">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
