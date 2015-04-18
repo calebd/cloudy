@@ -38,7 +38,7 @@ var Cloudy = {
         player.paused ? player.play() : player.pause();
     },
 
-    installSpaceHandler: function() {
+    installSpaceBarHandler: function() {
         $(window).keypress(function(event) {
             if (event.keyCode == 32) {
                 event.preventDefault();
@@ -50,7 +50,7 @@ var Cloudy = {
     setup: function() {
         if (Cloudy.isEpisodePage()) {
             Cloudy.installPlaybackHandlers();
-            Cloudy.installSpaceHandler();
+            Cloudy.installSpaceBarHandler();
         }
 
         $(".nav").css({ display: "none" });
@@ -60,3 +60,4 @@ var Cloudy = {
 };
 
 $(Cloudy.setup());
+$(window).unload(function() {});
