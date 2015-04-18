@@ -108,16 +108,19 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     }
 
     @objc private func share(sender: NSButton) {
-        webView.evaluateJavaScript("Cloudy.getEpisodeDetails();", completionHandler: { object, _ in
-
-        })
+        webView.evaluateJavaScript("Cloudy.getEpisodeDetails();", completionHandler: nil)
     }
 
 
     // MARK: - WKNavigationDelegate
 
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation) {
-        
+    func webView(webView: WKWebView, decidePolicyForNavigationAction navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
+        if navigationAction.navigationType == .LinkActivated {
+            let host = navigationAction.request.URL?.host
+            let policy: WKNavigationActionPolicy = host == "overcast.fm" ? .Allow : .Cancel
+            decisionHandler(policy)
+        }
+        decisionHandler(.Allow)
     }
 
 
