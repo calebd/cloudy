@@ -3,7 +3,7 @@
 //  Cloudy
 //
 //  Created by Caleb Davenport on 4/16/15.
-//  Copyright (c) 2015 Shiny Bits. All rights reserved.
+//  Copyright (c) 2015 Caleb Davenport. All rights reserved.
 //
 
 import Foundation
