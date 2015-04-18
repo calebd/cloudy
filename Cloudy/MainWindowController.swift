@@ -25,6 +25,7 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.titleVisibility = .Hidden
+        shareButton?.sendActionOn(Int(NSEventMask.LeftMouseUpMask.rawValue))
 
         navigationControl?.rac_liftSelector("setEnabled:forSegment:", withSignalsFromArray: [
             rac_valuesForKeyPath("contentViewController.webView.canGoBack", observer: self),
