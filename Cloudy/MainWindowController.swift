@@ -25,7 +25,7 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.titleVisibility = .Hidden
-        shareButton?.sendActionOn(Int(NSEventMask.LeftMouseUpMask.rawValue))
+        shareButton?.sendActionOn(Int(NSEventMask.LeftMouseDownMask.rawValue))
         playbackButton?.imagePosition = .ImageLeft
 
         navigationControl?.rac_liftSelector("setEnabled:forSegment:", withSignalsFromArray: [
