@@ -8,6 +8,7 @@ Cloudy uses [Carthage](https://github.com/carthage/carthage) to manage framework
 
 ```
 $ git clone https://github.com/calebd/cloudy
+$ cd cloudy
 $ carthage update
 $ open Cloudy.xcodeproj
 ```
