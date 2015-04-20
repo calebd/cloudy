@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
+final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler, NSUserInterfaceValidations {
 
     // MARK: - Properties
 
@@ -130,5 +130,15 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
         default:
             noop()
         }
+    }
+
+
+    // MARK: - NSUserInterfaceValidations
+
+    func validateUserInterfaceItem(item: NSValidatedUserInterfaceItem) -> Bool {
+        if item.action() == "togglePlaybackState:" {
+            return currentPlaybackItem != nil
+        }
+        return true
     }
 }
