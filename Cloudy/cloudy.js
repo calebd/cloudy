@@ -34,6 +34,9 @@ var Cloudy = {
     },
 
     togglePlaybackState: function() {
+        if (!Cloudy.isEpisodePage()) {
+            return;
+        }
         var player = $("#audioplayer")[0];
         player.paused ? player.play() : player.pause();
     },
