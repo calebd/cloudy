@@ -689,10 +689,10 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="togglePlaybackState:" target="Oky-zY-oP4" id="Seu-6M-Mgu"/>
+                                        </connections>
                                     </button>
-                                    <connections>
-                                        <action selector="togglePlaybackState:" target="Oky-zY-oP4" id="95k-dn-S3N"/>
-                                    </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="EA1AB8A1-3D9C-4E1A-B0FF-D4766713C22E" label="Navigation" paletteLabel="Navigation" id="cQ9-bd-Dtw" userLabel="Navigation Button">
                                     <nil key="toolTip"/>
@@ -712,10 +712,10 @@
                                                 </segment>
                                             </segments>
                                         </segmentedCell>
+                                        <connections>
+                                            <action selector="performBrowserNavigation:" target="Oky-zY-oP4" id="19T-IV-gZd"/>
+                                        </connections>
                                     </segmentedControl>
-                                    <connections>
-                                        <action selector="performBrowserNavigation:" target="Oky-zY-oP4" id="w91-dt-6f0"/>
-                                    </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
