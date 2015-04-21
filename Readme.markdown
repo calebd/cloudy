@@ -1,6 +1,6 @@
 # Cloudy for Mac
 
-Cloudy is a simple app that wraps the [Overcast](https://overcast.fm) web player.
+Cloudy is a simple app that wraps the [Overcast](https://overcast.fm) web player. Cloudy is not affiliated with Overcast.
 
 # Building
 
