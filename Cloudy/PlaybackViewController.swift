@@ -106,6 +106,10 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
         picker.showRelativeToRect(sender.bounds, ofView: sender, preferredEdge: NSMinYEdge)
     }
 
+    @objc private func reloadPage(sender: AnyObject?) {
+        webView.reload()
+    }
+
 
     // MARK: - WKNavigationDelegate
 

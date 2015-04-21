@@ -595,6 +595,12 @@
                                                 <action selector="runToolbarCustomizationPalette:" target="Ady-hI-5gd" id="pQI-g3-MTW"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="mhl-Vd-ETN"/>
+                                        <menuItem title="Reload Page" keyEquivalent="r" id="R9w-3W-fyb">
+                                            <connections>
+                                                <action selector="reloadPage:" target="Ady-hI-5gd" id="Hfk-C9-zwk"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
