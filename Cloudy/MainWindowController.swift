@@ -49,7 +49,7 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
         rac_valuesForKeyPath("contentViewController.currentPlaybackItem", observer: self)
             .map({
                 let item = $0 as? PlaybackItem
-                return item?.prettyName() ?? "Cloudy: No Episode"
+                return item?.prettyName() ?? "Cloudy: Nothing Playing"
             })
             .setKeyPath("playbackButton.title", onObject: self)
 
