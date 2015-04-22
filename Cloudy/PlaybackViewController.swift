@@ -9,7 +9,7 @@
 import Cocoa
 import WebKit
 
-final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler, NSUserInterfaceValidations {
+final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     // MARK: - Properties
 

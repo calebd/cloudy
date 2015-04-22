@@ -24,7 +24,9 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
 
     override func windowDidLoad() {
         super.windowDidLoad()
+
         window?.titleVisibility = .Hidden
+        window?.excludedFromWindowsMenu = true
         shareButton?.sendActionOn(Int(NSEventMask.LeftMouseDownMask.rawValue))
         playbackButton?.imagePosition = .ImageLeft
 
