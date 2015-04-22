@@ -51,6 +51,13 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     }
 
 
+    // MARK: - Public
+
+    func togglePlaybackState(sender: AnyObject?) {
+        webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
+    }
+
+
     // MARK: - Private
 
     private func setupConstraints() {
@@ -81,10 +88,6 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
         default:
             noop()
         }
-    }
-
-    @objc private func togglePlaybackState(sender: AnyObject?) {
-        webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
     }
 
     @objc private func share(sender: NSButton) {

@@ -41,6 +41,16 @@ private func DockMenu(#item: PlaybackItem?, #playing: Bool) -> NSMenu? {
     return menu
 }
 
+private func GetPlaybackViewController() -> PlaybackViewController? {
+    let windows = NSApplication.sharedApplication().windows as? [NSWindow] ?? []
+    for window in windows {
+        if let controller = window.contentViewController as? PlaybackViewController {
+            return controller
+        }
+    }
+    return nil
+}
+
 @NSApplicationMain final class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: - NSApplicationDelegate
@@ -50,5 +60,12 @@ private func DockMenu(#item: PlaybackItem?, #playing: Bool) -> NSMenu? {
             item: NowPlayingController.shared().nowPlayingItem,
             playing: NowPlayingController.shared().playing
         )
+    }
+
+
+    // MARK: - Private
+
+    @objc private func togglePlaybackState(sender: AnyObject?) {
+        GetPlaybackViewController()?.togglePlaybackState(self)
     }
 }
