@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0206EC1AE7461400E45D53 /* NowPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0206EB1AE7461400E45D53 /* NowPlayingController.swift */; };
 		3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */; };
 		3B430E281AE0A88F00AEBFBC /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E271AE0A88F00AEBFBC /* PlaybackViewController.swift */; };
 		3B430E2A1AE0A88F00AEBFBC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E291AE0A88F00AEBFBC /* Images.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B0206EB1AE7461400E45D53 /* NowPlayingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingController.swift; sourceTree = "<group>"; };
 		3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		3B430E201AE0A88F00AEBFBC /* Cloudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B430E241AE0A88F00AEBFBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */,
 				3B430E491AE0C66200AEBFBC /* MainWindowController.swift */,
 				3B430E271AE0A88F00AEBFBC /* PlaybackViewController.swift */,
+				3B0206EB1AE7461400E45D53 /* NowPlayingController.swift */,
 				3B430E451AE0C0FE00AEBFBC /* Defines.swift */,
 				3B430E421AE0A93000AEBFBC /* Resources */,
 			);
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0206EC1AE7461400E45D53 /* NowPlayingController.swift in Sources */,
 				3B430E281AE0A88F00AEBFBC /* PlaybackViewController.swift in Sources */,
 				3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */,
 				3B430E4A1AE0C66200AEBFBC /* MainWindowController.swift in Sources */,

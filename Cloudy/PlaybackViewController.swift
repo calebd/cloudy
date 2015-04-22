@@ -32,10 +32,6 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
         return view
     }()
 
-    private(set) dynamic var isPlaying: Bool = false
-
-    private(set) dynamic var currentPlaybackItem: PlaybackItem?
-
 
     // MARK: - NSViewController
 
@@ -68,13 +64,12 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
 
     private func handleUpdateEpisodeMessage(message: AnyObject?) {
         let dictionary = message as? [String: AnyObject]
-        currentPlaybackItem = dictionary.map({ PlaybackItem(episodeDictionary: $0) })
-        title = currentPlaybackItem?.prettyName()
+        NowPlayingController.shared().nowPlayingItem = dictionary.map({ PlaybackItem(episodeDictionary: $0) })
     }
 
     private func handleUpdatePlaybackMessage(message: AnyObject?) {
         let dictionary = message as! [String: AnyObject]
-        isPlaying = dictionary["is_playing"] as? Bool ?? false
+        NowPlayingController.shared().playing = dictionary["is_playing"] as? Bool ?? false
     }
 
     @objc private func performBrowserNavigation(sender: NSSegmentedControl) {
@@ -93,15 +88,20 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     }
 
     @objc private func share(sender: NSButton) {
+
+        // Build items
         var items = [AnyObject]()
-
-        currentPlaybackItem?.prettyName().map({ items.append($0) })
-        webView.URL.map({ items.append($0) })
-
+        if let item = NowPlayingController.shared().nowPlayingItem?.prettyName() {
+            items.append(item)
+        }
+        if let item = webView.URL {
+            items.append(item)
+        }
         if items.count == 0 {
             return
         }
 
+        // Show picker
         let picker = NSSharingServicePicker(items: items)
         picker.showRelativeToRect(sender.bounds, ofView: sender, preferredEdge: NSMinYEdge)
     }
@@ -137,12 +137,13 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     }
 
 
-    // MARK: - NSUserInterfaceValidations
-
-    func validateUserInterfaceItem(item: NSValidatedUserInterfaceItem) -> Bool {
-        if item.action() == "togglePlaybackState:" {
-            return currentPlaybackItem != nil
-        }
-        return true
-    }
+//    // MARK: - NSUserInterfaceValidations
+//
+//    func validateUserInterfaceItem(item: NSValidatedUserInterfaceItem) -> Bool {
+//        if item.action() == "togglePlaybackState:" {
+//            return NowPlayingController.shared().nowPlayingItem != nil
+//            return currentPlaybackItem != nil
+//        }
+//        return true
+//    }
 }
