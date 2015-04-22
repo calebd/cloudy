@@ -15,26 +15,22 @@ private func DockMenu(#item: PlaybackItem?, #playing: Bool) -> NSMenu? {
 
     let menu = NSMenu()
     menu.autoenablesItems = false
-    let emptySelector: Selector = "CloudyNoSelector" // Yay Swift ಠ_ಠ
 
-    let nowPlayingItem = NSMenuItem(title: "Now Playing", action: emptySelector, keyEquivalent: "")
+    let nowPlayingItem = NSMenuItem()
+    nowPlayingItem.title = "Now Playing"
     nowPlayingItem.enabled = false
     menu.addItem(nowPlayingItem)
 
-    let showNameItem = item?.show.map({
-        let item = NSMenuItem(title: $0, action: emptySelector, keyEquivalent: "")
-        item.indentationLevel = 1
-        item.enabled = false
-        return item
-    }) ?? NSMenuItem(title: "Now Show Title", action: emptySelector, keyEquivalent: "")
+    let showNameItem = NSMenuItem()
+    showNameItem.title = item?.show ?? "Now Show Title"
+    showNameItem.indentationLevel = 1
+    showNameItem.enabled = false
     menu.addItem(showNameItem)
 
-    let episodeNameItem = item?.episode.map({
-        let item = NSMenuItem(title: $0, action: emptySelector, keyEquivalent: "")
-        item.indentationLevel = 1
-        item.enabled = false
-        return item
-    }) ?? NSMenuItem(title: "Now Show Title", action: emptySelector, keyEquivalent: "")
+    let episodeNameItem = NSMenuItem()
+    episodeNameItem.title = item?.episode ?? "Now Episode Title"
+    episodeNameItem.indentationLevel = 1
+    episodeNameItem.enabled = false
     menu.addItem(episodeNameItem)
 
     menu.addItem(NSMenuItem.separatorItem())
