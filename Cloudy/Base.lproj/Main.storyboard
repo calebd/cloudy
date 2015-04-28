@@ -723,9 +723,19 @@
                                         </connections>
                                     </segmentedControl>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="F83ECD65-E830-46FC-AF26-ECA05A20D86D" label="Loading Indicator" paletteLabel="Loading Indicator" tag="-1" id="lzQ-aH-yzB">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="16" height="16"/>
+                                    <size key="maxSize" width="32" height="32"/>
+                                    <progressIndicator key="view" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="ADh-Iy-WXR">
+                                        <rect key="frame" x="34" y="14" width="16" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    </progressIndicator>
+                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="cQ9-bd-Dtw"/>
+                                <toolbarItem reference="lzQ-aH-yzB"/>
                                 <toolbarItem reference="ZYC-le-D4W"/>
                                 <toolbarItem reference="VM1-Q8-Iiq"/>
                                 <toolbarItem reference="ZYC-le-D4W"/>
@@ -737,6 +747,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="loadingIndicator" destination="ADh-Iy-WXR" id="MJW-G3-F1U"/>
                         <outlet property="navigationControl" destination="WZI-AR-IJE" id="2Hp-2J-qfj"/>
                         <outlet property="playbackButton" destination="R4x-TD-160" id="UPQ-wh-e9u"/>
                         <outlet property="shareButton" destination="WcS-Iy-vd0" id="j6W-cr-uYL"/>

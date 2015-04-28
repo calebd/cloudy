@@ -19,6 +19,8 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
 
     @IBOutlet var playbackButton: NSButton?
 
+    @IBOutlet var loadingIndicator: NSProgressIndicator?
+
 
     // MARK: - NSWindowController
 
@@ -77,6 +79,22 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
                 }
             })
             .setKeyPath("playbackButton.image", onObject: self)
+
+        rac_liftSelector("webViewLoadingDidChange:", withSignalsFromArray: [
+            rac_valuesForKeyPath("contentViewController.webView.loading", observer: self)
+        ])
+    }
+
+
+    // MARK: - Private
+
+    @objc private func webViewLoadingDidChange(loading: Bool) {
+        if loading {
+            loadingIndicator?.startAnimation(self)
+        }
+        else {
+            loadingIndicator?.stopAnimation(self)
+        }
     }
 
 
