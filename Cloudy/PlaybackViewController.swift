@@ -40,6 +40,7 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
 
         webView.configuration.userContentController.addScriptMessageHandler(self, name: "playbackHandler")
         webView.configuration.userContentController.addScriptMessageHandler(self, name: "episodeHandler")
+        webView.configuration.userContentController.addScriptMessageHandler(self, name: "unplayedEpisodeCountHandler")
         webView.navigationDelegate = self
 
         view.addSubview(webView)
@@ -76,6 +77,12 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
 
     private func handleUpdatePlaybackMessage(message: AnyObject?) {
         NowPlayingController.shared().playing = message as? Bool ?? false
+    }
+
+    private func handleUnplayedEpisodeCountMessage(message: AnyObject?) {
+        if let count = message as? Int {
+            NSApplication.sharedApplication().dockTile.badgeLabel = String(count)
+        }
     }
 
     @objc private func performBrowserNavigation(sender: NSSegmentedControl) {
@@ -133,6 +140,8 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
             handleUpdateEpisodeMessage(message.body)
         case "playbackHandler":
             handleUpdatePlaybackMessage(message.body)
+        case "unplayedEpisodeCountHandler":
+            handleUnplayedEpisodeCountMessage(message.body)
         default:
             noop()
         }

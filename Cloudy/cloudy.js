@@ -50,7 +50,7 @@ var Cloudy = {
         });
     },
 
-    getNumberOfEpisodes: function() {
+    getNumberOfUnplayedEpisodes: function() {
         if (Cloudy.isIndexPage()) {
             return $("a[href^=\\/\\+]").length;
         }
@@ -64,7 +64,9 @@ var Cloudy = {
         }
 
         $(".nav").css({ display: "none" });
+
         webkit.messageHandlers.episodeHandler.postMessage(Cloudy.getEpisodeDetails());
+        webkit.messageHandlers.unplayedEpisodeCountHandler.postMessage(Cloudy.getNumberOfUnplayedEpisodes());
     }
 };
 
