@@ -75,8 +75,7 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     }
 
     private func handleUpdatePlaybackMessage(message: AnyObject?) {
-        let dictionary = message as! [String: AnyObject]
-        NowPlayingController.shared().playing = dictionary["is_playing"] as? Bool ?? false
+        NowPlayingController.shared().playing = message as? Bool ?? false
     }
 
     @objc private func performBrowserNavigation(sender: NSSegmentedControl) {

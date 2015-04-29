@@ -22,15 +22,11 @@ var Cloudy = {
     },
 
     playerDidPlay: function() {
-        webkit.messageHandlers.playbackHandler.postMessage({
-            is_playing: true
-        });
+        webkit.messageHandlers.playbackHandler.postMessage(true);
     },
 
     playerDidPause: function() {
-        webkit.messageHandlers.playbackHandler.postMessage({
-            is_playing: false
-        });
+        webkit.messageHandlers.playbackHandler.postMessage(false);
     },
 
     togglePlaybackState: function() {
