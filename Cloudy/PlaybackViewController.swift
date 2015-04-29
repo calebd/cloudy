@@ -138,15 +138,4 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
             noop()
         }
     }
-
-
-//    // MARK: - NSUserInterfaceValidations
-//
-//    func validateUserInterfaceItem(item: NSValidatedUserInterfaceItem) -> Bool {
-//        if item.action() == "togglePlaybackState:" {
-//            return NowPlayingController.shared().nowPlayingItem != nil
-//            return currentPlaybackItem != nil
-//        }
-//        return true
-//    }
 }
