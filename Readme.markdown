@@ -12,3 +12,7 @@ $ cd cloudy
 $ carthage update
 $ open Cloudy.xcodeproj
 ```
+
+# Thanks
+
+Special thanks to [Tara Mann](https://twitter.com/taramann) for the name and icon!
