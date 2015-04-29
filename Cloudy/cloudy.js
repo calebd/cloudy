@@ -15,7 +15,7 @@
     return $("#audioplayer").length == 1;
   };
 
-  Cloudy.prototype.isEpisodePage = function () {
+  Cloudy.prototype.isIndexPage = function () {
     window.location.href == "https://overcast.fm/podcasts";
   };
 
