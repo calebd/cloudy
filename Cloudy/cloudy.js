@@ -61,6 +61,6 @@
     return $("a[href^=\\/\\+]").length;
   };
 
-  $().ready(function () { new Cloudy(); });
+  $().ready(function () { window.cloudy = new Cloudy(); });
   $(window).unload(function() {});
 }());

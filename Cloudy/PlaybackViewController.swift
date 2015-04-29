@@ -55,7 +55,7 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     // MARK: - Public
 
     func togglePlaybackState(sender: AnyObject?) {
-        webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
+        webView.evaluateJavaScript("cloudy.togglePlaybackState();", completionHandler: nil)
     }
 
 
