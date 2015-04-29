@@ -3,6 +3,10 @@ var Cloudy = {
         return $("#audioplayer").length == 1;
     },
 
+    isIndexPage: function() {
+        return location.href == "https://overcast.fm/podcasts";
+    },
+
     getEpisodeDetails: function() {
         if (!Cloudy.isEpisodePage()) {
             return null;
@@ -46,6 +50,13 @@ var Cloudy = {
         });
     },
 
+    getNumberOfUnplayedEpisodes: function() {
+        if (Cloudy.isIndexPage()) {
+            return $("a[href^=\\/\\+]").length;
+        }
+        return null;
+    },
+
     setup: function() {
         if (Cloudy.isEpisodePage()) {
             Cloudy.installPlaybackHandlers();
@@ -55,6 +66,7 @@ var Cloudy = {
         $(".nav").css({ display: "none" });
 
         webkit.messageHandlers.episodeHandler.postMessage(Cloudy.getEpisodeDetails());
+        webkit.messageHandlers.unplayedEpisodeCountHandler.postMessage(Cloudy.getNumberOfUnplayedEpisodes());
     }
 };
 
