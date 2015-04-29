@@ -45,7 +45,6 @@
 		3B430E431AE0B20700AEBFBC /* cloudy.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = cloudy.js; sourceTree = "<group>"; };
 		3B430E451AE0C0FE00AEBFBC /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
 		3B430E491AE0C66200AEBFBC /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		3BB0DBA91AE0F0BF0084773D /* Cloudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Cloudy.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +100,6 @@
 		3B430E421AE0A93000AEBFBC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3BB0DBA91AE0F0BF0084773D /* Cloudy.entitlements */,
 				3B430E291AE0A88F00AEBFBC /* Images.xcassets */,
 				3B430E2B1AE0A88F00AEBFBC /* Main.storyboard */,
 				3B430E241AE0A88F00AEBFBC /* Info.plist */,
@@ -144,7 +142,7 @@
 						CreatedOnToolsVersion = 6.3;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
