@@ -7,11 +7,14 @@
 //
 
 import Cocoa
+import SPMediaKeys
 import WebKit
 
 final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     // MARK: - Properties
+
+    private let mediaKeys = SPMediaKeys()
 
     private dynamic let webView: WKWebView = {
         let script: WKUserScript = {
@@ -37,6 +40,16 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        mediaKeys.watch { (key) -> Void in
+            switch (key) {
+            case .PlayPause:
+                self.togglePlaybackState(nil)
+                break
+            default:
+                break
+            }
+        }
 
         webView.configuration.userContentController.addScriptMessageHandler(self, name: "playbackHandler")
         webView.configuration.userContentController.addScriptMessageHandler(self, name: "episodeHandler")
