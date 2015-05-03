@@ -1,1 +1,2 @@
 github "ReactiveCocoa/ReactiveCocoa" "v2.4.7"
+github "neonichu/SPMediaKeyTap" "0.0.1"
