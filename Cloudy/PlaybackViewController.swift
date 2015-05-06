@@ -41,15 +41,16 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mediaKeys.watch { (key) -> Void in
-            switch (key) {
+        mediaKeys.watch({ [unowned self] key in
+            switch key {
             case .PlayPause:
                 self.togglePlaybackState(nil)
-                break
-            default:
-                break
+            case .Forward:
+                self.seekForward()
+            case .Rewind:
+                self.seekBackward()
             }
-        }
+        })
 
         webView.configuration.userContentController.addScriptMessageHandler(self, name: "playbackHandler")
         webView.configuration.userContentController.addScriptMessageHandler(self, name: "episodeHandler")
@@ -68,7 +69,7 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     // MARK: - Public
 
     func togglePlaybackState(sender: AnyObject?) {
-        webView.evaluateJavaScript("cloudy.togglePlaybackState();", completionHandler: nil)
+        webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
     }
 
 
@@ -130,6 +131,14 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
 
     @objc private func reloadPage(sender: AnyObject?) {
         webView.reload()
+    }
+
+    private func seekBackward() {
+        webView.evaluateJavaScript("Cloudy.seekBackward();", completionHandler: nil)
+    }
+
+    private func seekForward() {
+        webView.evaluateJavaScript("Cloudy.seekForward();", completionHandler: nil)
     }
 
 

@@ -61,6 +61,16 @@
     return $("a[href^=\\/\\+]").length;
   };
 
-  $().ready(function () { window.cloudy = new Cloudy(); });
+  Cloudy.prototype.seekBackward = function () {
+    var event = new Event("click");
+    $("#seekbackbutton").get(0).dispatchEvent(event);
+  };
+
+  Cloudy.prototype.seekForward = function () {
+    var event = new Event("click");
+    $("#seekforwardbutton").get(0).dispatchEvent(event);
+  };
+
+  $().ready(function () { window.Cloudy = new Cloudy(); });
   $(window).unload(function() {});
 }());
