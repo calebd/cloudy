@@ -7,14 +7,14 @@
 //
 
 import Cocoa
-import SPMediaKeys
+import MediaKeys
 import WebKit
 
 final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     // MARK: - Properties
 
-    private let mediaKeys = SPMediaKeys()
+    private let mediaKeys = MediaKeys()
 
     private dynamic let webView: WKWebView = {
         let script: WKUserScript = {

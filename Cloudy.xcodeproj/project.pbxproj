@@ -19,9 +19,9 @@
 		3BA5FE391AF35A9800A5622B /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA5FE361AF35A8E00A5622B /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BB0D1B81AE2263100AB4A33 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */; };
 		3BB0D1B91AE2263100AB4A33 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BFB222C1AFA071300127AF1 /* MediaKeys.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB22291AFA070C00127AF1 /* MediaKeys.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BFB222D1AFA074700127AF1 /* MediaKeys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB22291AFA070C00127AF1 /* MediaKeys.framework */; };
 		3BFD61741AF0CAAC0066D837 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3BFD61731AF0CAAC0066D837 /* Credits.rtf */; };
-		A14FABD21AF6C8C300A26F0F /* SPMediaKeys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14FABD11AF6C8C300A26F0F /* SPMediaKeys.framework */; };
-		A14FABD41AF6C96F00A26F0F /* SPMediaKeys.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A14FABD11AF6C8C300A26F0F /* SPMediaKeys.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,8 +31,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A14FABD41AF6C96F00A26F0F /* SPMediaKeys.framework in Embed Frameworks */,
 				3BB0D1B91AE2263100AB4A33 /* ReactiveCocoa.framework in Embed Frameworks */,
+				3BFB222C1AFA071300127AF1 /* MediaKeys.framework in Embed Frameworks */,
 				3BA5FE391AF35A9800A5622B /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -53,8 +53,8 @@
 		3B430E451AE0C0FE00AEBFBC /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
 		3B430E491AE0C66200AEBFBC /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		3BA5FE361AF35A8E00A5622B /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		3BFB22291AFA070C00127AF1 /* MediaKeys.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaKeys.framework; path = Carthage/Build/Mac/MediaKeys.framework; sourceTree = "<group>"; };
 		3BFD61731AF0CAAC0066D837 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
-		A14FABD11AF6C8C300A26F0F /* SPMediaKeys.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SPMediaKeys.framework; path = Carthage/Build/Mac/SPMediaKeys.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A14FABD21AF6C8C300A26F0F /* SPMediaKeys.framework in Frameworks */,
 				3BB0D1B81AE2263100AB4A33 /* ReactiveCocoa.framework in Frameworks */,
 				3BA5FE381AF35A9800A5622B /* Sparkle.framework in Frameworks */,
+				3BFB222D1AFA074700127AF1 /* MediaKeys.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +74,9 @@
 		3B2332D81AE1BA84005C6654 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BFB22291AFA070C00127AF1 /* MediaKeys.framework */,
 				3BA5FE361AF35A8E00A5622B /* Sparkle.framework */,
 				3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */,
-				A14FABD11AF6C8C300A26F0F /* SPMediaKeys.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
