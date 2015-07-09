@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B0206EC1AE7461400E45D53 /* NowPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0206EB1AE7461400E45D53 /* NowPlayingController.swift */; };
+		3B1A19201B4E681A005CE283 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA5FE361AF35A8E00A5622B /* Sparkle.framework */; };
 		3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */; };
 		3B430E281AE0A88F00AEBFBC /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E271AE0A88F00AEBFBC /* PlaybackViewController.swift */; };
 		3B430E2A1AE0A88F00AEBFBC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E291AE0A88F00AEBFBC /* Images.xcassets */; };
@@ -15,12 +16,9 @@
 		3B430E441AE0B20700AEBFBC /* cloudy.js in Resources */ = {isa = PBXBuildFile; fileRef = 3B430E431AE0B20700AEBFBC /* cloudy.js */; };
 		3B430E461AE0C0FE00AEBFBC /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E451AE0C0FE00AEBFBC /* Defines.swift */; };
 		3B430E4A1AE0C66200AEBFBC /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E491AE0C66200AEBFBC /* MainWindowController.swift */; };
-		3BA5FE381AF35A9800A5622B /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA5FE361AF35A8E00A5622B /* Sparkle.framework */; };
 		3BA5FE391AF35A9800A5622B /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA5FE361AF35A8E00A5622B /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3BB0D1B81AE2263100AB4A33 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */; };
 		3BB0D1B91AE2263100AB4A33 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BFB222C1AFA071300127AF1 /* MediaKeys.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB22291AFA070C00127AF1 /* MediaKeys.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3BFB222D1AFA074700127AF1 /* MediaKeys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB22291AFA070C00127AF1 /* MediaKeys.framework */; };
 		3BFD61741AF0CAAC0066D837 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3BFD61731AF0CAAC0066D837 /* Credits.rtf */; };
 /* End PBXBuildFile section */
 
@@ -62,9 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BB0D1B81AE2263100AB4A33 /* ReactiveCocoa.framework in Frameworks */,
-				3BA5FE381AF35A9800A5622B /* Sparkle.framework in Frameworks */,
-				3BFB222D1AFA074700127AF1 /* MediaKeys.framework in Frameworks */,
+				3B1A19201B4E681A005CE283 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
