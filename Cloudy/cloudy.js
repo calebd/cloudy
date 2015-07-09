@@ -5,7 +5,7 @@
       this.installSpaceBarHandler();
     }
 
-    $(".nav").css({ display: 'none' });
+    // $(".nav").css({ display: 'none' });
 
     webkit.messageHandlers.episodeHandler.postMessage(this.getEpisodeDetails());
     webkit.messageHandlers.unplayedEpisodeCountHandler.postMessage(this.getNumberOfUnplayedEpisodes());
