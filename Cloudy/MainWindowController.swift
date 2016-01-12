@@ -27,10 +27,10 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
 
-//        window?.titleVisibility = .Hidden
-//        window?.excludedFromWindowsMenu = true
-//        shareButton?.sendActionOn(Int(NSEventMask.LeftMouseDownMask.rawValue))
-//        playbackButton?.imagePosition = .ImageLeft
+        window?.titleVisibility = .Hidden
+        window?.excludedFromWindowsMenu = true
+        shareButton?.sendActionOn(Int(NSEventMask.LeftMouseDownMask.rawValue))
+        playbackButton?.imagePosition = .ImageLeft
 //
 //        let nowPlayingItemSignal = NowPlayingController.shared().rac_valuesForKeyPath("nowPlayingItem", observer: self)
 //        let hasNowPlayingItemSignal = nowPlayingItemSignal.map({ $0 is PlaybackItem })
