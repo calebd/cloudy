@@ -9,6 +9,7 @@
 import Cocoa
 import MediaKeys
 import WebKit
+import ReactiveCocoa
 
 final class PlaybackViewController: NSViewController {
 
@@ -23,6 +24,9 @@ final class PlaybackViewController: NSViewController {
 
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.addUserScript(script)
+        configuration.userContentController.addScriptMessageHandler(self, name: "playbackHandler")
+        configuration.userContentController.addScriptMessageHandler(self, name: "episodeHandler")
+        configuration.userContentController.addScriptMessageHandler(self, name: "unplayedEpisodeCountHandler")
 
         #if DEBUG
             configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
@@ -30,12 +34,27 @@ final class PlaybackViewController: NSViewController {
 
         let view = WKWebView(frame: .zero, configuration: configuration)
         view.autoresizingMask = [ .ViewWidthSizable, .ViewHeightSizable ]
-        view.configuration.userContentController.addScriptMessageHandler(self, name: "playbackHandler")
-        view.configuration.userContentController.addScriptMessageHandler(self, name: "episodeHandler")
-        view.configuration.userContentController.addScriptMessageHandler(self, name: "unplayedEpisodeCountHandler")
         view.navigationDelegate = self
         return view
     }()
+
+    private let _nowPlayingItem = MutableProperty<MediaItem?>(nil)
+
+    private let _unplayedEpisodeCount = MutableProperty<Int?>(nil)
+
+    private let _isPlaying = MutableProperty<Bool>(false)
+
+    var nowPlayingItem: AnyProperty<MediaItem?> {
+        return AnyProperty(_nowPlayingItem)
+    }
+
+    var unplayedEpisodeCount: AnyProperty<Int?> {
+        return AnyProperty(_unplayedEpisodeCount)
+    }
+
+    var isPlaying: AnyProperty<Bool> {
+        return AnyProperty(_isPlaying)
+    }
 
 
     // MARK: - NSViewController
@@ -104,13 +123,37 @@ extension PlaybackViewController: WKScriptMessageHandler {
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
         switch message.name {
         case "episodeHandler":
-            ()
+            let dictionary = message.body as? [String: String]
+            _nowPlayingItem.value = dictionary.flatMap(MediaItem.init)
         case "playbackHandler":
-            ()
+            if let playing = message.body as? Bool {
+                _isPlaying.value = playing
+            }
         case "unplayedEpisodeCountHandler":
-            ()
+            if let count = message.body as? Int {
+                _unplayedEpisodeCount.value = count
+            }
         default:
-            noop()
+            ()
+        }
+    }
+}
+
+extension PlaybackViewController {
+    struct MediaItem {
+        var showName: String
+        var episodeName: String
+
+        init?(dictionary: [String: String]) {
+            guard
+                let showName = dictionary["show_title"],
+                let episodeName = dictionary["episode_title"]
+            else {
+                return nil
+            }
+
+            self.showName = showName
+            self.episodeName = episodeName
         }
     }
 }
@@ -149,20 +192,6 @@ extension PlaybackViewController: WKScriptMessageHandler {
 //
 //    // MARK: - Private
 //
-//    private func handleUpdateEpisodeMessage(message: AnyObject?) {
-//        let dictionary = message as? [String: AnyObject]
-//        NowPlayingController.shared().nowPlayingItem = dictionary.map({ PlaybackItem(episodeDictionary: $0) })
-//    }
-//
-//    private func handleUpdatePlaybackMessage(message: AnyObject?) {
-//        NowPlayingController.shared().playing = message as? Bool ?? false
-//    }
-//
-//    private func handleUnplayedEpisodeCountMessage(message: AnyObject?) {
-//        if let count = message as? Int {
-//            NSApplication.sharedApplication().dockTile.badgeLabel = String(count)
-//        }
-//    }
 //
 //    private func seekBackward() {
 //        webView.evaluateJavaScript("Cloudy.seekBackward();", completionHandler: nil)
