@@ -38,7 +38,7 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
             .map({ item -> String in
                 switch item {
                 case let item?:
-                    return "\(item.showName): \(item.episodeName)"
+                    return item.compositeTitle
                 case .None:
                     return "Cloudy: Nothing Playing"
                 }

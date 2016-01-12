@@ -88,7 +88,7 @@ final class PlaybackViewController: NSViewController {
 
         // Build items
         var items = [AnyObject]()
-        if let item = NowPlayingController.shared().nowPlayingItem?.prettyName() {
+        if let item = nowPlayingItem.value?.compositeTitle {
             items.append(item)
         }
         if let item = webView.URL {
@@ -141,8 +141,12 @@ extension PlaybackViewController: WKScriptMessageHandler {
 
 extension PlaybackViewController {
     struct MediaItem {
-        var showName: String
-        var episodeName: String
+        var showTitle: String
+        var episodeTitle: String
+
+        var compositeTitle: String {
+            return "\(showTitle): \(episodeTitle)"
+        }
 
         init?(dictionary: [String: String]) {
             guard
@@ -152,8 +156,8 @@ extension PlaybackViewController {
                 return nil
             }
 
-            self.showName = showName
-            self.episodeName = episodeName
+            self.showTitle = showName
+            self.episodeTitle = episodeName
         }
     }
 }
