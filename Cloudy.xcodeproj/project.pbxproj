@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AE739B31C44E7350004A7A5 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE739B11C44E5F40004A7A5 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3B0206EC1AE7461400E45D53 /* NowPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0206EB1AE7461400E45D53 /* NowPlayingController.swift */; };
 		3B1A19201B4E681A005CE283 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA5FE361AF35A8E00A5622B /* Sparkle.framework */; };
 		3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 			files = (
 				3BB0D1B91AE2263100AB4A33 /* ReactiveCocoa.framework in Embed Frameworks */,
 				3BFB222C1AFA071300127AF1 /* MediaKeys.framework in Embed Frameworks */,
+				3AE739B31C44E7350004A7A5 /* Result.framework in Embed Frameworks */,
 				3BA5FE391AF35A9800A5622B /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -39,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3AE739B11C44E5F40004A7A5 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		3B0206EB1AE7461400E45D53 /* NowPlayingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingController.swift; sourceTree = "<group>"; };
 		3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		3B430E201AE0A88F00AEBFBC /* Cloudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +73,7 @@
 		3B2332D81AE1BA84005C6654 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AE739B11C44E5F40004A7A5 /* Result.framework */,
 				3BFB22291AFA070C00127AF1 /* MediaKeys.framework */,
 				3BA5FE361AF35A8E00A5622B /* Sparkle.framework */,
 				3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */,
@@ -146,7 +150,8 @@
 		3B430E181AE0A88F00AEBFBC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Caleb Davenport";
 				TargetAttributes = {
 					3B430E1F1AE0A88F00AEBFBC = {
@@ -239,6 +244,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -301,7 +307,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -310,6 +315,7 @@
 				INFOPLIST_FILE = Cloudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = com.calebd.cloudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -318,7 +324,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -326,6 +331,7 @@
 				);
 				INFOPLIST_FILE = Cloudy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.calebd.cloudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
