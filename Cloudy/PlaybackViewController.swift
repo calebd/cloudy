@@ -40,7 +40,7 @@ final class PlaybackViewController: NSViewController {
 
     private let _nowPlayingItem = MutableProperty<MediaItem?>(nil)
 
-    private let _unplayedEpisodeCount = MutableProperty<Int?>(nil)
+    private let _unplayedEpisodeCount = MutableProperty<Int>(0)
 
     private let _isPlaying = MutableProperty<Bool>(false)
 
@@ -48,12 +48,24 @@ final class PlaybackViewController: NSViewController {
         return AnyProperty(_nowPlayingItem)
     }
 
-    var unplayedEpisodeCount: AnyProperty<Int?> {
+    var unplayedEpisodeCount: AnyProperty<Int> {
         return AnyProperty(_unplayedEpisodeCount)
     }
 
     var isPlaying: AnyProperty<Bool> {
         return AnyProperty(_isPlaying)
+    }
+
+    var webViewCanGoBack: SignalProducer<Bool, NoError> {
+        return DynamicProperty(object: webView, keyPath: "canGoBack").producer.map({ $0 as? Bool }).ignoreNil()
+    }
+
+    var webViewCanGoForward: SignalProducer<Bool, NoError> {
+        return DynamicProperty(object: webView, keyPath: "canGoForward").producer.map({ $0 as? Bool }).ignoreNil()
+    }
+
+    var webViewLoading: SignalProducer<Bool, NoError> {
+        return DynamicProperty(object: webView, keyPath: "loading").producer.map({ $0 as? Bool }).ignoreNil()
     }
 
 
@@ -103,8 +115,12 @@ final class PlaybackViewController: NSViewController {
         picker.showRelativeToRect(sender.bounds, ofView: sender, preferredEdge: .MinY)
     }
 
-    @objc private func reload() {
+    @objc private func reload(_: AnyObject?) {
         webView.reload()
+    }
+
+    @objc private func togglePlaybackState(_: AnyObject?) {
+        webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
     }
 }
 
@@ -121,18 +137,15 @@ extension PlaybackViewController: WKNavigationDelegate {
 
 extension PlaybackViewController: WKScriptMessageHandler {
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        switch message.name {
-        case "episodeHandler":
-            let dictionary = message.body as? [String: String]
-            _nowPlayingItem.value = dictionary.flatMap(MediaItem.init)
-        case "playbackHandler":
-            if let playing = message.body as? Bool {
-                _isPlaying.value = playing
-            }
-        case "unplayedEpisodeCountHandler":
-            if let count = message.body as? Int {
-                _unplayedEpisodeCount.value = count
-            }
+        switch (message.name, message.body) {
+        case ("episodeHandler", let body as [String: String]):
+            _nowPlayingItem.value = MediaItem(dictionary: body)
+        case ("episodeHandler", _):
+            _nowPlayingItem.value = nil
+        case ("playbackHandler", let body as Bool):
+            _isPlaying.value = body
+        case ("unplayedEpisodeCountHandler", let body as Int):
+            _unplayedEpisodeCount.value = body
         default:
             ()
         }
@@ -187,15 +200,7 @@ extension PlaybackViewController {
 //    }
 //
 //
-//    // MARK: - Public
-//
-//    func togglePlaybackState(sender: AnyObject?) {
-//        webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
-//    }
-//
-//
 //    // MARK: - Private
-//
 //
 //    private func seekBackward() {
 //        webView.evaluateJavaScript("Cloudy.seekBackward();", completionHandler: nil)
