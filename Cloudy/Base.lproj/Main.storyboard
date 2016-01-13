@@ -663,7 +663,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="Cloudy" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" customClass="MainWindowController" customModule="Cloudy" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Cloudy" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="PlaybackViewController" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <rect key="contentRect" x="0.0" y="0.0" width="700" height="550"/>
@@ -681,7 +681,7 @@
                                     <size key="minSize" width="34" height="25"/>
                                     <size key="maxSize" width="46" height="28"/>
                                     <button key="view" verticalHuggingPriority="750" id="WcS-Iy-vd0">
-                                        <rect key="frame" x="16" y="14" width="46" height="28"/>
+                                        <rect key="frame" x="15" y="14" width="46" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSShareTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fJX-eB-wPF">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -713,7 +713,7 @@
                                     <size key="minSize" width="57" height="25"/>
                                     <size key="maxSize" width="60" height="25"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="WZI-AR-IJE">
-                                        <rect key="frame" x="4" y="14" width="57" height="25"/>
+                                        <rect key="frame" x="3" y="14" width="57" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <segmentedCell key="cell" borderStyle="border" alignment="left" style="separated" trackingMode="momentary" id="RLq-K1-Pbu">
                                             <font key="font" metaFont="system"/>
@@ -735,8 +735,8 @@
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="16" height="16"/>
                                     <size key="maxSize" width="32" height="32"/>
-                                    <progressIndicator key="view" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="ADh-Iy-WXR">
-                                        <rect key="frame" x="34" y="14" width="16" height="16"/>
+                                    <progressIndicator key="view" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="ADh-Iy-WXR">
+                                        <rect key="frame" x="41" y="14" width="16" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </progressIndicator>
                                 </toolbarItem>
