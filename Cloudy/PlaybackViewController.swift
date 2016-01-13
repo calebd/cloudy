@@ -9,31 +9,52 @@
 import Cocoa
 import MediaKeys
 import WebKit
+import ReactiveCocoa
 
-final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
+final class PlaybackViewController: NSViewController {
 
     // MARK: - Properties
 
-    private let mediaKeys = MediaKeys()
-
-    private dynamic let webView: WKWebView = {
+    private lazy var webView: WKWebView = {
         let script: WKUserScript = {
-            let url = NSBundle.mainBundle().URLForResource("cloudy", withExtension: "js")!
-            let contents = String(contentsOfURL: url, encoding: NSUTF8StringEncoding, error: nil)!
+            let URL = NSBundle.mainBundle().URLForResource("cloudy", withExtension: "js")!
+            let contents =  try! String(contentsOfURL: URL, encoding: NSUTF8StringEncoding)
             return WKUserScript(source: contents, injectionTime: WKUserScriptInjectionTime.AtDocumentEnd, forMainFrameOnly: true)
         }()
 
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.addUserScript(script)
+        configuration.userContentController.addScriptMessageHandler(self, name: "playbackHandler")
+        configuration.userContentController.addScriptMessageHandler(self, name: "episodeHandler")
+        configuration.userContentController.addScriptMessageHandler(self, name: "unplayedEpisodeCountHandler")
 
         #if DEBUG
             configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
         #endif
 
-        let view = WKWebView(frame: CGRectZero, configuration: configuration)
-        view.translatesAutoresizingMaskIntoConstraints = false
+        let view = WKWebView(frame: .zero, configuration: configuration)
+        view.autoresizingMask = [ .ViewWidthSizable, .ViewHeightSizable ]
+        view.navigationDelegate = self
         return view
     }()
+
+    private let _nowPlayingItem = MutableProperty<MediaItem?>(nil)
+
+    private let _unplayedEpisodeCount = MutableProperty<Int>(0)
+
+    private let _isPlaying = MutableProperty<Bool>(false)
+
+    var nowPlayingItem: AnyProperty<MediaItem?> { return AnyProperty(_nowPlayingItem) }
+
+    var unplayedEpisodeCount: AnyProperty<Int> { return AnyProperty(_unplayedEpisodeCount) }
+
+    var isPlaying: AnyProperty<Bool> { return AnyProperty(_isPlaying) }
+
+    var webViewCanGoBack: SignalProducer<Bool, NoError> { return webView.canGoBackProducer }
+
+    var webViewCanGoForward: SignalProducer<Bool, NoError> { return webView.canGoForwardProducer }
+
+    var webViewLoading: SignalProducer<Bool, NoError> { return webView.loadingProducer }
 
 
     // MARK: - NSViewController
@@ -41,109 +62,52 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mediaKeys.watch({ [unowned self] key in
-            switch key {
-            case .PlayPause:
-                self.togglePlaybackState(nil)
-            case .Forward:
-                self.seekForward()
-            case .Rewind:
-                self.seekBackward()
-            }
-        })
-
-        webView.configuration.userContentController.addScriptMessageHandler(self, name: "playbackHandler")
-        webView.configuration.userContentController.addScriptMessageHandler(self, name: "episodeHandler")
-        webView.configuration.userContentController.addScriptMessageHandler(self, name: "unplayedEpisodeCountHandler")
-        webView.navigationDelegate = self
-
+        webView.frame = view.bounds
         view.addSubview(webView)
-        setupConstraints()
 
-        let url = NSURL(string: "https://overcast.fm")
-        let request = url.map({ NSURLRequest(URL: $0) })
-        request.map({ webView.loadRequest($0) })
-    }
-
-
-    // MARK: - Public
-
-    func togglePlaybackState(sender: AnyObject?) {
-        webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
+        let URL = NSURL(string: "https://overcast.fm")!
+        let request = NSURLRequest(URL: URL)
+        webView.loadRequest(request)
     }
 
 
     // MARK: - Private
 
-    private func setupConstraints() {
-        let views = [
-            "webView": webView
-        ]
-
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|[webView]|", options: nil, metrics: nil, views: views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: nil, metrics: nil, views: views))
-    }
-
-    private func handleUpdateEpisodeMessage(message: AnyObject?) {
-        let dictionary = message as? [String: AnyObject]
-        NowPlayingController.shared().nowPlayingItem = dictionary.map({ PlaybackItem(episodeDictionary: $0) })
-    }
-
-    private func handleUpdatePlaybackMessage(message: AnyObject?) {
-        NowPlayingController.shared().playing = message as? Bool ?? false
-    }
-
-    private func handleUnplayedEpisodeCountMessage(message: AnyObject?) {
-        if let count = message as? Int {
-            NSApplication.sharedApplication().dockTile.badgeLabel = String(count)
-        }
-    }
-
-    @objc private func performBrowserNavigation(sender: NSSegmentedControl) {
+    @objc private func navigate(sender: NSSegmentedControl) {
         switch sender.selectedSegment {
         case 0:
             webView.goBack()
         case 1:
             webView.goForward()
         default:
-            noop()
+            ()
         }
     }
 
     @objc private func share(sender: NSButton) {
-
-        // Build items
-        var items = [AnyObject]()
-        if let item = NowPlayingController.shared().nowPlayingItem?.prettyName() {
-            items.append(item)
-        }
-        if let item = webView.URL {
-            items.append(item)
-        }
-        if items.count == 0 {
+        guard
+            let text = nowPlayingItem.value?.compositeTitle,
+            let URL = webView.URL
+        else {
             return
         }
 
-        // Show picker
+        let items = [ text, URL ]
+
         let picker = NSSharingServicePicker(items: items)
-        picker.showRelativeToRect(sender.bounds, ofView: sender, preferredEdge: NSMinYEdge)
+        picker.showRelativeToRect(sender.bounds, ofView: sender, preferredEdge: .MinY)
     }
 
-    @objc private func reloadPage(sender: AnyObject?) {
+    @objc private func reload(_: AnyObject?) {
         webView.reload()
     }
 
-    private func seekBackward() {
-        webView.evaluateJavaScript("Cloudy.seekBackward();", completionHandler: nil)
+    @objc private func togglePlaybackState(_: AnyObject?) {
+        webView.evaluateJavaScript("Cloudy.togglePlaybackState();", completionHandler: nil)
     }
+}
 
-    private func seekForward() {
-        webView.evaluateJavaScript("Cloudy.seekForward();", completionHandler: nil)
-    }
-
-
-    // MARK: - WKNavigationDelegate
-
+extension PlaybackViewController: WKNavigationDelegate {
     func webView(webView: WKWebView, decidePolicyForNavigationAction navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
         if navigationAction.navigationType == .LinkActivated {
             let host = navigationAction.request.URL?.host
@@ -152,20 +116,80 @@ final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKSc
         }
         decisionHandler(.Allow)
     }
+}
 
-
-    // MARK: - WKScriptMessageHandler
-
+extension PlaybackViewController: WKScriptMessageHandler {
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        switch message.name {
-        case "episodeHandler":
-            handleUpdateEpisodeMessage(message.body)
-        case "playbackHandler":
-            handleUpdatePlaybackMessage(message.body)
-        case "unplayedEpisodeCountHandler":
-            handleUnplayedEpisodeCountMessage(message.body)
+        switch (message.name, message.body) {
+        case ("episodeHandler", let body as [String: String]):
+            _nowPlayingItem.value = MediaItem(dictionary: body)
+        case ("episodeHandler", _):
+            _nowPlayingItem.value = nil
+        case ("playbackHandler", let body as Bool):
+            _isPlaying.value = body
+        case ("unplayedEpisodeCountHandler", let body as Int):
+            _unplayedEpisodeCount.value = body
         default:
-            noop()
+            ()
         }
     }
 }
+
+extension PlaybackViewController {
+    struct MediaItem {
+        var showTitle: String
+        var episodeTitle: String
+
+        var compositeTitle: String {
+            return "\(showTitle): \(episodeTitle)"
+        }
+
+        init?(dictionary: [String: String]) {
+            guard
+                let showName = dictionary["show_title"],
+                let episodeName = dictionary["episode_title"]
+            else {
+                return nil
+            }
+
+            self.showTitle = showName
+            self.episodeTitle = episodeName
+        }
+    }
+}
+
+//final class PlaybackViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHandler {
+//
+//    // MARK: - Properties
+//
+//    private let mediaKeys = MediaKeys()
+//
+//
+//    // MARK: - NSViewController
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        mediaKeys.watch({ [unowned self] key in
+//            switch key {
+//            case .PlayPause:
+//                self.togglePlaybackState(nil)
+//            case .Forward:
+//                self.seekForward()
+//            case .Rewind:
+//                self.seekBackward()
+//            }
+//        })
+//    }
+//
+//
+//    // MARK: - Private
+//
+//    private func seekBackward() {
+//        webView.evaluateJavaScript("Cloudy.seekBackward();", completionHandler: nil)
+//    }
+//
+//    private func seekForward() {
+//        webView.evaluateJavaScript("Cloudy.seekForward();", completionHandler: nil)
+//    }
+//}
