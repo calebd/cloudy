@@ -44,29 +44,17 @@ final class PlaybackViewController: NSViewController {
 
     private let _isPlaying = MutableProperty<Bool>(false)
 
-    var nowPlayingItem: AnyProperty<MediaItem?> {
-        return AnyProperty(_nowPlayingItem)
-    }
+    var nowPlayingItem: AnyProperty<MediaItem?> { return AnyProperty(_nowPlayingItem) }
 
-    var unplayedEpisodeCount: AnyProperty<Int> {
-        return AnyProperty(_unplayedEpisodeCount)
-    }
+    var unplayedEpisodeCount: AnyProperty<Int> { return AnyProperty(_unplayedEpisodeCount) }
 
-    var isPlaying: AnyProperty<Bool> {
-        return AnyProperty(_isPlaying)
-    }
+    var isPlaying: AnyProperty<Bool> { return AnyProperty(_isPlaying) }
 
-    var webViewCanGoBack: SignalProducer<Bool, NoError> {
-        return DynamicProperty(object: webView, keyPath: "canGoBack").producer.map({ $0 as? Bool }).ignoreNil()
-    }
+    var webViewCanGoBack: SignalProducer<Bool, NoError> { return webView.canGoBackProducer }
 
-    var webViewCanGoForward: SignalProducer<Bool, NoError> {
-        return DynamicProperty(object: webView, keyPath: "canGoForward").producer.map({ $0 as? Bool }).ignoreNil()
-    }
+    var webViewCanGoForward: SignalProducer<Bool, NoError> { return webView.canGoForwardProducer }
 
-    var webViewLoading: SignalProducer<Bool, NoError> {
-        return DynamicProperty(object: webView, keyPath: "loading").producer.map({ $0 as? Bool }).ignoreNil()
-    }
+    var webViewLoading: SignalProducer<Bool, NoError> { return webView.loadingProducer }
 
 
     // MARK: - NSViewController
@@ -97,20 +85,15 @@ final class PlaybackViewController: NSViewController {
     }
 
     @objc private func share(sender: NSButton) {
-
-        // Build items
-        var items = [AnyObject]()
-        if let item = nowPlayingItem.value?.compositeTitle {
-            items.append(item)
-        }
-        if let item = webView.URL {
-            items.append(item)
-        }
-        if items.count == 0 {
+        guard
+            let text = nowPlayingItem.value?.compositeTitle,
+            let URL = webView.URL
+        else {
             return
         }
 
-        // Show picker
+        let items = [ text, URL ]
+
         let picker = NSSharingServicePicker(items: items)
         picker.showRelativeToRect(sender.bounds, ofView: sender, preferredEdge: .MinY)
     }

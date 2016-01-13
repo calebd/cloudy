@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3AE739B31C44E7350004A7A5 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE739B11C44E5F40004A7A5 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AF748D01C46394700216897 /* Cloudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF748CF1C46394700216897 /* Cloudy.swift */; };
 		3B1A19201B4E681A005CE283 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA5FE361AF35A8E00A5622B /* Sparkle.framework */; };
 		3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */; };
 		3B430E281AE0A88F00AEBFBC /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B430E271AE0A88F00AEBFBC /* PlaybackViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		3AE739B11C44E5F40004A7A5 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
+		3AF748CF1C46394700216897 /* Cloudy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloudy.swift; sourceTree = "<group>"; };
 		3B2332D41AE1BA48005C6654 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		3B430E201AE0A88F00AEBFBC /* Cloudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B430E241AE0A88F00AEBFBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				3B430E251AE0A88F00AEBFBC /* AppDelegate.swift */,
 				3B430E491AE0C66200AEBFBC /* MainWindowController.swift */,
 				3B430E271AE0A88F00AEBFBC /* PlaybackViewController.swift */,
+				3AF748CF1C46394700216897 /* Cloudy.swift */,
 				3B430E421AE0A93000AEBFBC /* Resources */,
 			);
 			path = Cloudy;
@@ -199,6 +202,7 @@
 				3B430E281AE0A88F00AEBFBC /* PlaybackViewController.swift in Sources */,
 				3B430E261AE0A88F00AEBFBC /* AppDelegate.swift in Sources */,
 				3B430E4A1AE0C66200AEBFBC /* MainWindowController.swift in Sources */,
+				3AF748D01C46394700216897 /* Cloudy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
